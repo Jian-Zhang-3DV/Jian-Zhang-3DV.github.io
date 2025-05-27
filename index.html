@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jian Zhang - Personal Academic Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #0f172a; /* slate-900 */
+            color: #cbd5e1; /* slate-300 */
+        }
+        .section-title {
+            @apply text-5xl font-bold text-slate-100 mb-12 text-center;
+        }
+        .card {
+            @apply bg-slate-800 shadow-xl rounded-xl p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+        }
+        .tag {
+            @apply bg-slate-700 text-amber-400 px-4 py-2 rounded-lg text-sm font-semibold shadow-sm hover:bg-slate-600 transition-colors;
+        }
+        .nav-link {
+            @apply text-slate-200 hover:text-amber-400 font-medium px-3 py-2 rounded-md transition-colors duration-300;
+        }
+        .nav-link.active {
+            @apply text-amber-400 bg-slate-700;
+        }
+        .hero-bg {
+            background-color: #334155; /* slate-700 */
+        }
+        .contact-icon-link svg {
+            @apply w-6 h-6 md:w-8 md:h-8; /* Adjusted icon size for new header layout */
+        }
+        .contact-icon-link span {
+            @apply text-xs; /* Adjusted text size for new header layout */
+        }
+        .publication-video {
+            @apply w-full max-w-md rounded-lg shadow-lg mt-4 mb-2; /* Basic styling for video */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="bg-slate-800/90 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-center items-center space-x-8">
+            <a href="#publications" class="nav-link active">Publications</a>
+        </div>
+    </nav>
+
+    <header class="hero-bg text-white py-12 md:py-16 px-4">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-start md:space-x-10">
+                <!-- Left Column: Image, Name, Title, Contact Icons -->
+                <div class="flex flex-col items-center md:items-start mb-8 md:mb-0 md:w-1/3">
+                    <img src="jian_zhang.jpg" alt="Jian Zhang" class="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover shadow-2xl border-4 border-slate-400 mb-4" onerror="this.onerror=null;this.src='https://placehold.co/224x224/64748b/e2e8f0?text=Image+Not+Found';">
+                    <h1 class="text-3xl md:text-4xl font-bold text-center md:text-left">Jian Zhang</h1>
+                    <p class="text-md md:text-lg font-light text-slate-200 text-center md:text-left mt-1">Graduate Student at Xiamen University</p>
+                    <p class="text-sm md:text-base font-light text-slate-300 text-center md:text-left mt-2 mb-4">Exploring Vision-Language Models (VLM) and 3D Perception</p>
+                    <div class="flex items-center justify-center md:justify-start space-x-5 mt-3">
+                        <a href="mailto:zjrandomyeah@gmail.com" class="contact-icon-link text-slate-300 hover:text-amber-400 transition-colors duration-300 group flex flex-col items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="transform group-hover:scale-110 transition-transform duration-300 w-6 h-6 md:w-7 md:h-7">
+                                <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
+                                <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
+                            </svg>
+                            <span class="mt-1 block">Email</span>
+                        </a>
+                        <a href="https://github.com/Jian-Zhang-3DV" target="_blank" rel="noopener noreferrer" class="contact-icon-link text-slate-300 hover:text-amber-400 transition-colors duration-300 group flex flex-col items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="transform group-hover:scale-110 transition-transform duration-300 w-6 h-6 md:w-7 md:h-7"> <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21-.15.46-.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path> </svg>
+                            <span class="mt-1 block">GitHub</span>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=qBNtBsAAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener noreferrer" class="contact-icon-link text-slate-300 hover:text-amber-400 transition-colors duration-300 group flex flex-col items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="transform group-hover:scale-110 transition-transform duration-300 w-6 h-6 md:w-7 md:h-7"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-3.5-9l3.5-2l3.5 2v4H12v2h5V9l-5-3l-5 3v6h2v-4z"></path> </svg>
+                            <span class="mt-1 block">Google Scholar</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Right Column: About Me Content -->
+                <div class="md:w-2/3">
+                    <h2 class="text-4xl font-bold text-slate-100 mb-6 text-center md:text-left">About Me</h2>
+                    <div class="text-lg leading-relaxed text-slate-300 space-y-5">
+                        <p>
+                            I am currently a graduate student at <a href="https://www.xmu.edu.cn/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline font-semibold">Xiamen University</a> (September 2023 - Present), supervised by Professor <a href="https://huangyue05.github.io/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline font-semibold">Yue Huang</a>. I obtained my Bachelor's degree in Artificial Intelligence from <a href="http://www.ncu.edu.cn/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline font-semibold">Nanchang University</a> (September 2019 - June 2023).
+                        </p>
+                         <p>
+                            My long-term research goal is to create AI agents capable of efficient industrial production in real-world environments, thereby significantly enhancing productivity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16">
+
+        <section id="publications" class="py-16 rounded-xl">
+            <h2 class="section-title">Publications</h2>
+            <div class="space-y-10 max-w-5xl mx-auto">
+                <div class="card">
+                    <h3 class="text-2xl font-semibold text-amber-400 mb-3">VLM-3R: Vision-Language Models Augmented with Instruction-Aligned 3D Reconstruction (ArXiv, 2025)</h3>
+                    <p class="text-sm text-slate-400 mb-4">
+                        Authors: Zhiwen Fan*, <strong>Jian Zhang*</strong>, Renjie Li, Junge Zhang, Runjin Chen, Hezhen Hu, Kevin Wang, Huaizhi Qu, Dilin Wang, Zhicheng Yan, Hongyu Xu, Justin Theiss, Tianlong Chen, Jiachen Li, Zhengzhong Tu, Zhangyang Wang, Rakesh Ranjan (*Equal Contribution)
+                    </p>
+                    <p class="mb-4 text-base leading-relaxed text-slate-300">
+                        Abstract: This work introduces VLM-3R, a unified Vision-Language Model (VLM) framework incorporating 3D Reconstructive instruction tuning. VLM-3R processes monocular video to derive implicit 3D tokens, aligning spatial context with language instructions for 3D spatial assistance and embodied reasoning. It also introduces the Vision-Spatial-Temporal Intelligence benchmark.
+                    </p>
+                    <video class="publication-video" controls autoplay muted loop poster="https://placehold.co/640x360/334155/e2e8f0?text=VLM-3R+Video+Poster">
+                        <source src="projects\vlm3r\arc-dynamic.mp4" type="video/mp4">
+                        Your browser does not support the video tag. 请更新您的浏览器或使用支持HTML5视频的浏览器。
+                    </video>
+                    <div class="flex flex-wrap gap-4 items-center mt-2">
+                        <a href="https://arxiv.org/abs/2505.20279" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">📄 Paper</a>
+                        <a href="https://github.com/VITA-Group/VLM-3R" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">💻 Code</a>
+                        <a href="https://vlm-3r.github.io/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">🌐 Project Page</a>
+                    </div>
+                 </div>
+
+                <div class="card">
+                    <h3 class="text-2xl font-semibold text-amber-400 mb-3">Large Spatial Model: End-to-end Unposed Images to Semantic 3D (NeurIPS, 2024)</h3>
+                    <p class="text-sm text-slate-400 mb-4">
+                        Authors: Zhiwen Fan*, <strong>Jian Zhang*</strong>, Wenyan Cong, Peihao Wang, Renjie Li, Kairun Wen, Shijie Zhou, Achuta Kadambi, Zhangyang Wang, Danfei Xu, Boris Ivanovic, Marco Pavone, Yue Wang (*Equal Contribution)
+                    </p>
+                    <p class="mb-4 text-base leading-relaxed text-slate-300">
+                        Abstract: This work introduces the Large Spatial Model (LSM), which directly processes unposed RGB images into semantic radiance fields. LSM simultaneously estimates geometry, appearance, and semantics in a single feed-forward pass, achieving real-time semantic 3D reconstruction for the first time.
+                    </p>
+                    <video class="publication-video" controls autoplay muted loop poster="https://placehold.co/640x360/334155/e2e8f0?text=LSM+Video+Poster">
+                        <source src="projects\lsm\LSM_demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag. 请更新您的浏览器或使用支持HTML5视频的浏览器。
+                    </video>
+                    <div class="flex flex-wrap gap-4 items-center mt-2">
+                        <a href="https://arxiv.org/abs/2410.18956" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">📄 Paper</a>
+                        <a href="https://github.com/NVlabs/LSM" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">💻 Code</a>
+                        <a href="https://largespatialmodel.github.io/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">🌐 Project Page</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-2xl font-semibold text-amber-400 mb-3">InstantSplat: Sparse-view Gaussian Splatting in Seconds (ArXiv, 2024)</h3>
+                    <p class="text-sm text-slate-400 mb-4">
+                        Authors: Zhiwen Fan*, Kairun Wen*, Wenyan Cong*, Kevin Wang, <strong>Jian Zhang</strong>, Xinghao Ding, Danfei Xu, Boris Ivanovic, Marco Pavone, Georgios Pavlakos, Zhangyang Wang, Yue Wang (*Equal Contribution)
+                    </p>
+                    <p class="mb-4 text-base leading-relaxed text-slate-300">
+                        Abstract: While neural 3D reconstruction has advanced substantially, its performance significantly degrades with sparse-view data, which limits its broader applicability, since SfM is often unreliable in sparse-view scenarios where feature matches are scarce. In this paper, we introduce InstantSplat, a novel approach for addressing sparse-view 3D scene reconstruction at lightning-fast speed. InstantSplat employs a self-supervised framework that optimizes 3D scene representation and camera poses by unprojecting 2D pixels into 3D space and aligning them using differentiable neural rendering.
+                    </p>
+                    <video class="publication-video" controls autoplay muted loop poster="https://placehold.co/640x360/334155/e2e8f0?text=InstantSplat+Video+Poster">
+                        <source src="projects\instantsplat\demo1.mp4" type="video/mp4">
+                        Your browser does not support the video tag. 请更新您的浏览器或使用支持HTML5视频的浏览器。
+                    </video>
+                    <div class="flex flex-wrap gap-4 items-center mt-2">
+                        <a href="https://arxiv.org/abs/2403.20309" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">📄 Paper</a>
+                        <a href="https://github.com/NVlabs/InstantSplat" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">💻 Code</a>
+                        <a href="https://instantsplat.github.io/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">🌐 Project Page</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Active link highlighting
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Update active link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) { // Adjust offset as needed
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // If no section is explicitly current (e.g. at the very top, or scrolled past the last section),
+            // and there's at least one nav link and at least one section,
+            // default to highlighting the first nav link if scrolled to the top.
+            if (!current && navLinks.length > 0 && sections.length > 0) {
+                if (pageYOffset < sections[0].offsetTop - 150) {
+                     navLinks[0].classList.add('active');
+                }
+            } else if (navLinks.length > 0 && sections.length === 0) { 
+                // If there are no sections at all, always highlight the first nav link.
+                 navLinks[0].classList.add('active');
+            } else if (navLinks.length > 0 && current === '' && pageYOffset >= sections[sections.length-1].offsetTop + sections[sections.length-1].offsetHeight - window.innerHeight ) {
+                // If scrolled to the bottom and past the last section, keep the last section's link active
+                 navLinks.forEach(link => {
+                    if (link.getAttribute('href').substring(1) === sections[sections.length-1].getAttribute('id')) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+
+        });
+    </script>
+
+</body>
+</html>
