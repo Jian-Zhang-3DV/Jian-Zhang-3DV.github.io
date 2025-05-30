@@ -1,21 +1,19 @@
 # Jian Zhang
 
-<p align="right">
-  <img src="jian_zhang.jpg" alt="Jian Zhang" style="border-radius: 50%; width: 150px; height: 150px; object-fit: cover;"/>
-</p>
-
-Graduate Student at Xiamen University, exploring Vision-Language Models (VLM) and 3D Perception.
-
-## About Me
-
-I am currently a graduate student at [Xiamen University](https://www.xmu.edu.cn/) (September 2023 - Present), supervised by Professor [Yue Huang](https://huangyue05.github.io/). I obtained my Bachelor's degree in Artificial Intelligence from [Nanchang University](http://www.ncu.edu.cn/) (September 2019 - June 2023).
-
-My long-term research goal is to create AI agents capable of efficient industrial production in real-world environments, thereby significantly enhancing productivity.
-
-**Contact:**
-*   [Email](mailto:zjrandomyeah@gmail.com)
-*   [GitHub](https://github.com/Jian-Zhang-3DV)
-*   [Google Scholar](https://scholar.google.com/citations?user=qBNtBsAAAAAJ&hl=en&oi=sra)
+<table>
+  <tr>
+    <td style="width: 170px; vertical-align: top; padding-right: 20px; border: 0;">
+      <img src="jian_zhang.jpg" alt="Jian Zhang" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;" />
+    </td>
+    <td style="vertical-align: top; border: 0;">
+      <em>Graduate Student at Xiamen University, exploring Vision-Language Models (VLM) and 3D Perception.</em>
+      <br><br>
+      I am currently a graduate student at <a href="https://www.xmu.edu.cn/" target="_blank" rel="noopener noreferrer">Xiamen University</a> (September 2023 - Present), supervised by Professor <a href="https://huangyue05.github.io/" target="_blank" rel="noopener noreferrer">Yue Huang</a>. I obtained my Bachelor's degree in Artificial Intelligence from <a href="http://www.ncu.edu.cn/" target="_blank" rel="noopener noreferrer">Nanchang University</a> (September 2019 - June 2023).
+      <br><br>
+      My long-term research goal is to create AI agents capable of efficient industrial production in real-world environments, thereby significantly enhancing productivity.
+    </td>
+  </tr>
+</table>
 
 ## Publications
 
