@@ -3,7 +3,9 @@
 <table>
   <tr>
     <td style="width: 170px; vertical-align: top; padding-right: 20px; border: 0;">
-      <img src="jian_zhang.jpg" alt="Jian Zhang" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;" />
+      <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; position: relative;">
+        <img src="jian_zhang.jpg" alt="Jian Zhang" style="display: block; height: 100%; width: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" />
+      </div>
     </td>
     <td style="vertical-align: top; border: 0;">
       <em>Graduate Student at Xiamen University, exploring Vision-Language Models (VLM) and 3D Perception.</em>
