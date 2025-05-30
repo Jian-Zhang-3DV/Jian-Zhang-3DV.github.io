@@ -16,7 +16,7 @@ My long-term research goal is to create AI agents capable of efficient industria
 
 **Contact:**
 *   [Email](mailto:zjrandomyeah@gmail.com)
-*   [GitHub](https://github.com/Jian-Zhang-3DV)
+*   [Homepage](https://jian-zhang-3dv.github.io/Jian-Zhang-3DV/)
 *   [Google Scholar](https://scholar.google.com/citations?user=qBNtBsAAAAAJ&hl=en&oi=sra)
 
 ## Publications
