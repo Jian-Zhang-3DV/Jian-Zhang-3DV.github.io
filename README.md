@@ -15,6 +15,11 @@
   </tr>
 </table>
 
+**Contact:**
+*   [Email](mailto:zjrandomyeah@gmail.com)
+*   [GitHub](https://github.com/Jian-Zhang-3DV)
+*   [Google Scholar](https://scholar.google.com/citations?user=qBNtBsAAAAAJ&hl=en&oi=sra)
+
 ## Publications
 
 ### VLM-3R: Vision-Language Models Augmented with Instruction-Aligned 3D Reconstruction (ArXiv, 2025)
