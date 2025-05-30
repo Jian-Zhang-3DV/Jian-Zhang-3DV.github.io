@@ -1,4 +1,8 @@
-# Jian Zhang - Personal Academic Page
+# Jian Zhang
+
+<p align="right">
+  <img src="jian_zhang.jpg" alt="Jian Zhang" style="border-radius: 50%; width: 150px; height: 150px; object-fit: cover;"/>
+</p>
 
 Graduate Student at Xiamen University, exploring Vision-Language Models (VLM) and 3D Perception.
 
