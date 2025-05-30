@@ -3,8 +3,13 @@
 <table>
   <tr>
     <td style="width: 170px; vertical-align: top; padding-right: 20px; border: 0;">
-      <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; position: relative;">
-        <img src="jian_zhang.jpg" alt="Jian Zhang" style="display: block; height: 100%; width: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" />
+      <div style="width: 150px; height: 150px; border-radius: 50%;
+                  background-image: url('jian_zhang.jpg');
+                  background-size: cover;
+                  background-position: center center;
+                  background-repeat: no-repeat;"
+           aria-label="Jian Zhang" role="img">
+        &nbsp;
       </div>
     </td>
     <td style="vertical-align: top; border: 0;">
