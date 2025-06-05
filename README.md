@@ -15,6 +15,17 @@
 </tr>
 </table>
 
+**🔍 Looking for Opportunities:**
+* 🌐 I am currently actively seeking research or engineering positions related to Multimodal Large Models.
+* 🔬 I am particularly interested in opportunities where I can apply my research skills to real-world challenges and contribute to cutting-edge projects.
+* 📩 If you have any potential collaborations or suitable job openings, please feel free to contact me.
+
+**🔍 求职机会：**
+* 🌐 我目前正在积极寻找多模态大模型相关的研究或工程岗位。
+* 🔬 特别关注于提升模型在三维空间感知、理解、推理与规划方面的能力。
+* 💼 我对能够将我的研究技能应用于实际挑战并为这些领域的前沿项目做出贡献的机会特别感兴趣。
+* 📩 如果您有任何潜在的合作或合适的工作机会，请随时与我联系。
+
 **📬 Contact:**
 *   📧 [Email](mailto:zjrandomyeah@gmail.com)
 *   🌐 [Homepage](https://jian-zhang-3dv.github.io/Jian-Zhang-3DV/)
