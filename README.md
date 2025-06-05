@@ -30,7 +30,7 @@
 *   📧 [Email](mailto:zjrandomyeah@gmail.com)
 *   🌐 [Homepage](https://jian-zhang-3dv.github.io/Jian-Zhang-3DV/)
 *   📚 [Google Scholar](https://scholar.google.com/citations?user=qBNtBsAAAAAJ&hl=en&oi=sra)
-*   📄 [CV](cv/CV_Jian_Zhang.pdf)
+*   📄 [CV](https://jian-zhang-3dv.github.io/Jian-Zhang-3DV/cv/CV_Jian_Zhang.pdf)
 
 ## 📝 Publications
 
