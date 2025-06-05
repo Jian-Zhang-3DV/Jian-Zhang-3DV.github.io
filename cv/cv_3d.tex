@@ -1,0 +1,76 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !Mode:: "TeX:UTF-8"
+
+\documentclass{resume}
+\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
+%\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
+\usepackage{linespacing_fix} % disable extra space before next section
+\usepackage{cite}
+\usepackage{hyperref} % For clickable links
+\usepackage{fontawesome} % Ensure FontAwesome is loaded
+
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
+
+\name{张舰}
+
+\basicInfo{
+  \email{zjrandomyeah@gmail.com} \textperiodcentered\ 
+  \href{https://github.com/Jian-Zhang-3DV}{\faGithub\ Jian-Zhang-3DV} \textperiodcentered\ 
+  \href{https://scholar.google.com/citations?user=qBNtBsAAAAAJ&hl=en&oi=sra}{\faGoogle\ Google Scholar} \textperiodcentered\
+  \href{https://jian-zhang-3dv.github.io/Jian-Zhang-3DV/}{\faGlobe\ Homepage}
+}
+ 
+\section{\faGraduationCap\  教育背景}
+\datedsubsection{\textbf{厦门大学}, 厦门}{2023年9月 -- 至今}
+\textit{硕士研究生}
+\datedsubsection{\textbf{南昌大学}, 南昌}{2019年9月 -- 2023年6月}
+\textit{学士学位}, 人工智能专业
+
+\section{\faFileTextO\ 学术成果}
+% VLM-3R
+\datedsubsection{\textbf{VLM-3R: Vision-Language Models Augmented with Instruction-Aligned 3D Reconstruction} (ArXiv)}{2025}
+\textit{Authors:} \textbf{Jian Zhang}\textsuperscript{*}, Zhiwen Fan\textsuperscript{*}, Renjie Li, Junge Zhang, Runjin Chen, Hezhen Hu, Kevin Wang, Huaizhi Qu, Dilin Wang, Zhicheng Yan, Hongyu Xu, Justin Theiss, Tianlong Chen, Jiachen Li, Zhengzhong Tu, Zhangyang Wang, Rakesh Ranjan (*Equal Contribution)
+
+VLM-3R：提出结合视觉语言模型的3D重建框架，通过引入3D特征编码器并利用大规模3D指令对进行微调，实现了无需深度传感器的单目3D空间感知与场景理解能力，专注于提升模型在三维空间中的感知与交互。
+
+\href{https://arxiv.org/abs/2505.20279}{\faFileTextO\ Paper} \textperiodcentered\ \href{https://github.com/VITA-Group/VLM-3R}{\faCode\ Code} (\faStar\ 113, 开源于 2025-05-26) \textperiodcentered\ \href{https://vlm-3r.github.io/}{\faGlobe\ Project Page}
+
+% Large Spatial Model
+\datedsubsection{\textbf{Large Spatial Model: End-to-end Unposed Images to Semantic 3D} (NeurIPS)}{2024}
+\textit{Authors:} \textbf{Jian Zhang}\textsuperscript{*}, Zhiwen Fan\textsuperscript{*}, Wenyan Cong, Peihao Wang, Renjie Li, Kairun Wen, Shijie Zhou, Achuta Kadambi, Zhangyang Wang, Danfei Xu, Boris Ivanovic, Marco Pavone, Yue Wang (*Equal Contribution)
+
+LSM：提出一种高效的端到端3D重建方法，能够将一组未标定姿态的RGB图像通过单次前向传播直接转换为带语义信息的3D辐射场表示，实现了快速且高质量的场景级别语义3D重建，特别适用于机器人导航和增强现实等需要实时3D感知的应用。
+
+\href{https://arxiv.org/abs/2410.18956}{\faFileTextO\ Paper} \textperiodcentered\ \href{https://github.com/NVlabs/LSM}{\faCode\ Code} (\faStar\ 186, 开源于 2024-12-22, Citations: 13) \textperiodcentered\ \href{https://largespatialmodel.github.io/}{\faGlobe\ Project Page}
+
+% InstantSplat
+\datedsubsection{\textbf{InstantSplat: Sparse-view Gaussian Splatting in Seconds} (ArXiv)}{2024}
+\textit{Authors:} Zhiwen Fan\textsuperscript{*}, Kairun Wen\textsuperscript{*}, Wenyan Cong\textsuperscript{*}, Kevin Wang, \textbf{Jian Zhang}, Xinghao Ding, Danfei Xu, Boris Ivanovic, Marco Pavone, Georgios Pavlakos, Zhangyang Wang, Yue Wang (*Equal Contribution)
+
+InstantSplat：针对稀疏视角输入的场景，提出一种能在数秒内完成高质量3D重建的快速高斯溅射方法。通过自监督学习优化相机位姿，结合2D像素反投影与可微分神经渲染技术，高效重建并优化场景的3D表示。
+
+\href{https://arxiv.org/abs/2403.20309}{\faFileTextO\ Paper} \textperiodcentered\ \href{https://github.com/NVlabs/InstantSplat}{\faCode\ Code} (\faStar\ 1.4k, 开源于 2024-08-01, Citations: 92) \textperiodcentered\ \href{https://instantsplat.github.io/}{\faGlobe\ Project Page}
+
+% DynamicVerse
+\datedsubsection{\textbf{DynamicVerse: Physically-Aware Multimodal Modeling for Dynamic 4D Worlds} (Preprint)}{2025}
+\textit{Authors:} Kairun Wen\textsuperscript{*}, Yuzhi Huang\textsuperscript{*}, Runyu Chen, Hui Zheng, Yunlong Lin, Panwang Pan, Chenxin Li, Wenyan Cong, \textbf{Jian Zhang}, Junbin Lu, Chenguo Lin, Dilin Wang, Zhicheng Yan, Hongyu Xu, Justin Theiss, Yue Huang, Xinghao Ding, Rakesh Ranjan, Zhiwen Fan (*Equal Contribution)
+
+DynamicVerse：提出一个针对动态4D世界的物理感知多模态模型，专注于理解和建模随时间演变的3D场景结构、物体的真实运动轨迹。通过构建大规模动态场景数据集，提升模型对复杂动态环境的4D感知与理解能力。
+
+\href{https://dynamic-verse.github.io/}{\faGlobe\ Project Page} (论文与代码即将发布)
+
+\section{\faHeartO\ 荣誉与获奖}
+\datedsubsection{\textbf{中国机器人大赛-先进视觉赛-3D 识别项目 一等奖}}{2021年}
+
+\datedsubsection{\textbf{中国机器人大赛-先进视觉赛-工业测量项目 二等奖}}{2021年}
+
+\datedsubsection{\textbf{南昌大学特等奖学金}}{2023年}
+\datedsubsection{\textbf{南昌大学优秀毕业生}}{2023年}
+
+%% Reference
+%\newpage
+%\bibliographystyle{IEEETran}
+%\bibliography{mycite}
+\end{document} 
