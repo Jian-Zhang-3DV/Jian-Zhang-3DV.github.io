@@ -2,7 +2,7 @@
 
 # 🌟 Jian Zhang | 张舰
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Space+Grotesk&size=30&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=3D+Vision+%26+AI+Researcher;Exploring+3D-Consistent+Generation;Building+Intelligent+3D+Agents" alt="Typing SVG" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Space+Grotesk&size=30&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=Exploring+3D-Consistent+Generation;Advancing+3D+Spatial+Understanding;Building+Intelligent+3D+Agents" alt="Typing SVG" />
 
 [![Homepage](https://img.shields.io/badge/🌐_Homepage-Visit_Site-00D9FF?style=for-the-badge&logo=github-pages)](https://jian-zhang-3dv.github.io/Jian-Zhang-3DV/)
 [![Google Scholar](https://img.shields.io/badge/📚_Scholar-4285F4?style=for-the-badge&logo=google-scholar&logoColor=white)](https://scholar.google.com/citations?user=qBNtBsAAAAAJ)
