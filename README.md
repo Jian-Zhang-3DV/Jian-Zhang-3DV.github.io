@@ -13,22 +13,16 @@
 
 ---
 
-<table>
-<tr>
-<td width="35%" align="center">
+<div align="center">
 
 <img src="jian_zhang.jpg" alt="Jian Zhang" width="200" height="200">
 
-<br>
+**🎓 Graduate Student** at *Xiamen University*  
+**🔬 Research Intern** at *Baidu Inc.*
 
-**🎓 Graduate Student**  
-*Xiamen University*
+</div>
 
-**🔬 Research Intern**  
-*Baidu Inc.*
-
-</td>
-<td width="65%">
+---
 
 ## 🚀 Research Vision
 
@@ -45,10 +39,6 @@
 **🎮 Virtual Worlds & Metaverse Applications**
 
 </div>
-
-</td>
-</tr>
-</table>
 
 ---
 
