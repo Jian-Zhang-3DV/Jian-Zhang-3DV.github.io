@@ -3,269 +3,1199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jian Zhang - Personal Academic Page</title>
+    <title>Jian Zhang - 3D Vision & AI Researcher</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-gradient: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            --neon-cyan: #00ffff;
+            --neon-purple: #ff00ff;
+            --dark-bg: #0a0e27;
+            --card-bg: rgba(15, 23, 42, 0.8);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: #e2e8f0;
+            overflow-x: hidden;
             scroll-behavior: smooth;
-            background-color: #0f172a; /* slate-900 */
-            color: #cbd5e1; /* slate-300 */
         }
-        .section-title {
-            @apply text-5xl font-bold text-slate-100 mb-12 text-center;
+        
+        /* Loading Screen */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
         }
-        .card {
-            @apply bg-slate-800 shadow-xl rounded-xl p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+        
+        .loader {
+            position: relative;
+            width: 150px;
+            height: 150px;
         }
-        .tag {
-            @apply bg-slate-700 text-amber-400 px-4 py-2 rounded-lg text-sm font-semibold shadow-sm hover:bg-slate-600 transition-colors;
+        
+        .loader-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: var(--neon-cyan);
+            animation: spin 1.5s linear infinite;
         }
+        
+        .loader-ring:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 15px;
+            left: 15px;
+            border-top-color: var(--neon-purple);
+            animation: spin 2s linear reverse infinite;
+        }
+        
+        .loader-ring:nth-child(3) {
+            width: 90px;
+            height: 90px;
+            top: 30px;
+            left: 30px;
+            border-top-color: #ffd700;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Three.js Canvas Background */
+        #three-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+        
+        /* Particles Background */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        /* Cursor Glow Effect */
+        .cursor-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(100, 126, 234, 0.1) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            transition: opacity 0.3s;
+            mix-blend-mode: screen;
+        }
+        
+        /* Navigation */
+        .nav-container {
+            backdrop-filter: blur(10px);
+            background: rgba(10, 14, 39, 0.7);
+            border-bottom: 1px solid rgba(100, 126, 234, 0.2);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        
         .nav-link {
-            @apply text-slate-200 hover:text-amber-400 font-medium px-3 py-2 rounded-md transition-colors duration-300;
+            position: relative;
+            color: #94a3b8;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            overflow: hidden;
         }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 100%;
+        }
+        
+        .nav-link:hover,
         .nav-link.active {
-            @apply text-amber-400 bg-slate-700;
+            color: var(--neon-cyan);
         }
-        .hero-bg {
-            background-color: #334155; /* slate-700 */
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 80px 20px 40px;
         }
-        .contact-icon-link svg {
-            @apply w-6 h-6 md:w-8 md:h-8; /* Adjusted icon size for new header layout */
+        
+        .glitch {
+            position: relative;
+            font-family: 'Space Grotesk', monospace;
+            font-size: clamp(2rem, 8vw, 5rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                        -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+                        0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+            animation: glitch 500ms infinite;
         }
-        .contact-icon-link span {
-            @apply text-xs; /* Adjusted text size for new header layout */
+        
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                            0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+            }
+            14% {
+                text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                            0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+            }
+            15% {
+                text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+            }
+            50% {
+                text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                            0.05em 0 0 rgba(0, 255, 0, 0.75),
+                            0 -0.05em 0 rgba(0, 0, 255, 0.75);
+            }
+            99% {
+                text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                            0.05em 0 0 rgba(0, 255, 0, 0.75),
+                            0 -0.05em 0 rgba(0, 0, 255, 0.75);
+            }
+            100% {
+                text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+                            -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+                            -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+            }
         }
-        .publication-video {
-            @apply w-full max-w-md rounded-lg shadow-lg mt-4 mb-2; /* Basic styling for video */
+        
+        /* Profile Image with Animated Border */
+        .profile-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 2rem;
+        }
+        
+        .profile-border {
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple), var(--neon-cyan));
+            animation: rotate-border 3s linear infinite;
+        }
+        
+        @keyframes rotate-border {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .profile-img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--dark-bg);
+        }
+        
+        /* Typewriter Effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: 0.15em solid var(--neon-cyan);
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--neon-cyan) }
+        }
+        
+        /* 3D Card Flip */
+        .card-3d {
+            perspective: 1000px;
+            height: 100%;
+        }
+        
+        .card-3d-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        
+        .card-3d:hover .card-3d-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .card-3d-front, .card-3d-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 126, 234, 0.2);
+            padding: 2rem;
+        }
+        
+        .card-3d-back {
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Publication Card with Hover Effects */
+        .pub-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 126, 234, 0.2);
+            border-radius: 1rem;
+            padding: 0.75rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pub-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 126, 234, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .pub-card:hover::before {
+            left: 100%;
+        }
+        
+        .pub-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(100, 126, 234, 0.3);
+            border-color: var(--neon-cyan);
+        }
+        
+        /* About Me Cards - optimized for multi-column layout */
+        .about-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 126, 234, 0.2);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 126, 234, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .about-card:hover::before {
+            left: 100%;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(100, 126, 234, 0.3);
+            border-color: var(--neon-cyan);
+        }
+        
+        
+        /* Contact Cards - optimized for contact section */
+        .contact-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 126, 234, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 126, 234, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .contact-card:hover::before {
+            left: 100%;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(100, 126, 234, 0.3);
+            border-color: var(--neon-cyan);
+        }
+        
+        
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s;
+        }
+        
+        .video-modal.active {
+            display: flex;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .video-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 2001;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--neon-cyan);
+        }
+        
+        
+        /* Animated Background Gradient */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #1e3a8a, #312e81, #1e1b4b, #1e3a8a);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -3;
+            opacity: 0.3;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* Contact Icons */
+        .contact-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(30, 41, 59, 0.5);
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            margin: 0 0.5rem;
+        }
+        
+        .contact-icon:hover {
+            background: var(--primary-gradient);
+            transform: translateY(-5px) scale(1.1);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 10px 20px rgba(100, 126, 234, 0.5);
+        }
+        
+        
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .glitch {
+                font-size: 2rem;
+            }
+            
+            .profile-container {
+                width: 200px;
+                height: 200px;
+            }
         }
     </style>
 </head>
-<body class="antialiased">
-
-    <nav class="bg-slate-800/90 backdrop-blur-md shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-center items-center space-x-8">
-            <a href="#publications" class="nav-link active">Publications</a>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+        </div>
+    </div>
+    
+    <!-- Animated Background -->
+    <div class="gradient-bg"></div>
+    <canvas id="three-canvas"></canvas>
+    <div id="particles-js"></div>
+    
+    <!-- Cursor Glow Effect -->
+    <div class="cursor-glow" id="cursor-glow"></div>
+    
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
+                    JZ.3DV
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#publications" class="nav-link">Research</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
         </div>
     </nav>
-
-    <header class="hero-bg text-white py-12 md:py-16 px-4">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row items-start md:space-x-10">
-                <!-- Left Column: Image, Name, Title, Contact Icons -->
-                <div class="flex flex-col items-center md:items-start mb-8 md:mb-0 md:w-1/3">
-                    <img src="jian_zhang.jpg" alt="Jian Zhang" class="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover shadow-2xl border-4 border-slate-400 mb-4" onerror="this.onerror=null;this.src='https://placehold.co/224x224/64748b/e2e8f0?text=Image+Not+Found';">
-                    <h1 class="text-3xl md:text-4xl font-bold text-center md:text-left">Jian Zhang</h1>
-                    <p class="text-md md:text-lg font-light text-slate-200 text-center md:text-left mt-1">Graduate Student at Xiamen University</p>
-                    <p class="text-sm md:text-base font-light text-slate-300 text-center md:text-left mt-2 mb-4">Exploring Vision-Language Models (VLM) and 3D Perception</p>
-                    <div class="flex items-center justify-center md:justify-start space-x-5 mt-3">
-                        <a href="mailto:zjrandomyeah@gmail.com" class="contact-icon-link text-slate-300 hover:text-amber-400 transition-colors duration-300 group flex flex-col items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="transform group-hover:scale-110 transition-transform duration-300 w-6 h-6 md:w-7 md:h-7">
-                                <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
-                                <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
-                            </svg>
-                            <span class="mt-1 block">Email</span>
-                        </a>
-                        <a href="https://github.com/Jian-Zhang-3DV" target="_blank" rel="noopener noreferrer" class="contact-icon-link text-slate-300 hover:text-amber-400 transition-colors duration-300 group flex flex-col items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="transform group-hover:scale-110 transition-transform duration-300 w-6 h-6 md:w-7 md:h-7"> <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21-.15.46-.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path> </svg>
-                            <span class="mt-1 block">GitHub</span>
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=qBNtBsAAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener noreferrer" class="contact-icon-link text-slate-300 hover:text-amber-400 transition-colors duration-300 group flex flex-col items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="transform group-hover:scale-110 transition-transform duration-300 w-6 h-6 md:w-7 md:h-7"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-3.5-9l3.5-2l3.5 2v4H12v2h5V9l-5-3l-5 3v6h2v-4z"></path> </svg>
-                            <span class="mt-1 block">Google Scholar</span>
-                        </a>
-                        <a href="cv/CV_Jian_Zhang.pdf" target="_blank" rel="noopener noreferrer" class="contact-icon-link text-slate-300 hover:text-amber-400 transition-colors duration-300 group flex flex-col items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="transform group-hover:scale-110 transition-transform duration-300 w-6 h-6 md:w-7 md:h-7">
-                                <path d="M5 3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H5zm3 3h8a1 1 0 110 2H8a1 1 0 110-2zm0 4h8a1 1 0 110 2H8a1 1 0 110-2zm0 4h4a1 1 0 110 2H8a1 1 0 110-2z"/>
-                            </svg>
-                            <span class="mt-1 block">CV</span>
-                        </a>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container mx-auto text-center">
+            <div class="profile-container floating" data-aos="zoom-in">
+                <div class="profile-border"></div>
+                <img src="jian_zhang.jpg" alt="Jian Zhang" class="profile-img" 
+                     onerror="this.src='https://via.placeholder.com/250/1e3a8a/ffffff?text=JZ'">
+            </div>
+            
+            <h1 class="glitch mb-8" data-aos="fade-up" data-aos-delay="200">Jian Zhang</h1>
+            
+            <p class="typewriter text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8" 
+               style="max-width: fit-content;" data-aos="fade-up" data-aos-delay="400">
+                Exploring the frontiers of 3D-consistent video generation and 3D spatial understanding
+            </p>
+            
+            <div class="flex justify-center space-x-4 mb-8" data-aos="fade-up" data-aos-delay="800">
+                <a href="mailto:zjrandomyeah@gmail.com" class="contact-icon">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+                <a href="https://github.com/Jian-Zhang-3DV" target="_blank" class="contact-icon">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="https://scholar.google.com/citations?user=qBNtBsAAAAAJ" target="_blank" class="contact-icon">
+                    <i class="fas fa-graduation-cap text-xl"></i>
+                </a>
+                <a href="cv/_Resume__Jian_Zhang.pdf" target="_blank" class="contact-icon">
+                    <i class="fas fa-file-alt text-xl"></i>
+                </a>
+            </div>
+            
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down text-2xl text-cyan-400"></i>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent"
+                data-aos="fade-up">
+                About Me
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                
+                <div class="flex flex-col gap-4">
+                    <div class="about-card" data-aos="fade-right">
+                        <h3 class="text-xl font-bold mb-4 text-cyan-400">Education</h3>
+                        <div class="space-y-3">
+                            <div class="border-l-4 border-cyan-400 pl-3 py-2">
+                                <h4 class="font-semibold text-white">Graduate Student</h4>
+                                <p class="text-sm text-gray-300">Xiamen University</p>
+                                <p class="text-xs text-gray-500">Sept 2023 - Present</p>
+                            </div>
+                            <div class="border-l-4 border-purple-400 pl-3 py-2">
+                                <h4 class="font-semibold text-white">B.S. in Artificial Intelligence</h4>
+                                <p class="text-sm text-gray-300">Nanchang University</p>
+                                <p class="text-xs text-gray-500">Sept 2019 - June 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-card" data-aos="fade-right" data-aos-delay="100">
+                        <h3 class="text-xl font-bold mb-4 text-purple-400">Experience</h3>
+                        <div class="border-l-4 border-purple-400 pl-3 py-2">
+                            <h4 class="font-semibold text-white">Research Intern</h4>
+                            <p class="text-sm text-gray-300">Baidu Inc.</p>
+                            <p class="text-xs text-gray-500">Aug 2025 - Present</p>
+                            <p class="text-xs mt-1 text-cyan-300">Video Generation Research</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Right Column: About Me Content -->
-                <div class="md:w-2/3">
-                    <h2 class="text-4xl font-bold text-slate-100 mb-6 text-center md:text-left">About Me</h2>
-                    <div class="text-lg leading-relaxed text-slate-300 space-y-5">
-                        <p>
-                            I am currently a graduate student at <a href="https://www.xmu.edu.cn/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline font-semibold">Xiamen University</a> (September 2023 - Present), supervised by Professor <a href="https://huangyue05.github.io/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline font-semibold">Yue Huang</a>. I obtained my Bachelor's degree in Artificial Intelligence from <a href="http://www.ncu.edu.cn/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline font-semibold">Nanchang University</a> (September 2019 - June 2023).
+    
+                <div class="flex flex-col gap-4">
+                    <div class="about-card" data-aos="fade-left">
+                        <h3 class="text-xl font-bold mb-4 text-cyan-400">Research Vision</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            My long-term vision follows a progressive pathway: first achieving 3D-consistent content generation, 
+                            then developing comprehensive 3D understanding, and ultimately enabling intelligent embodied agents 
+                            that can navigate and interact within these 3D environments.
                         </p>
-                         <p>
-                            My long-term research goal is to create AI agents capable of efficient industrial production in real-world environments, thereby significantly enhancing productivity.
+                    </div>
+                    
+                    <div class="about-card" data-aos="fade-left" data-aos-delay="100">
+                        <h3 class="text-xl font-bold mb-4 text-purple-400">Research Focus</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 p-2 rounded hover:bg-gray-800/50 transition">
+                                <span class="text-cyan-400">▸</span>
+                                <span class="text-sm text-gray-300">3D-Consistent Content Generation</span>
+                            </div>
+                            <div class="flex items-center gap-2 p-2 rounded hover:bg-gray-800/50 transition">
+                                <span class="text-cyan-400">▸</span>
+                                <span class="text-sm text-gray-300">3D Understanding</span>
+                            </div>
+                            <div class="flex items-center gap-2 p-2 rounded hover:bg-gray-800/50 transition">
+                                <span class="text-cyan-400">▸</span>
+                                <span class="text-sm text-gray-300">3D Embodied Agents</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Publications Section -->
+    <section id="publications" class="py-20 px-6 relative">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent"
+                data-aos="fade-up">
+                Research Publications
+            </h2>
+            
+            <!-- VLM-3R -->
+            <div class="pub-card mb-8" data-aos="fade-up">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <div class="lg:w-2/3">
+                        <h3 class="text-2xl font-bold mb-2 text-cyan-400">
+                            VLM-3R: Vision-Language Models Augmented with 3D Reconstruction
+                        </h3>
+                        <p class="text-sm text-gray-400 mb-3">
+                            <span class="text-purple-400">ArXiv 2025</span> | 
+                            <strong>Jian Zhang*</strong>, Zhiwen Fan*, et al.
                         </p>
-                        <p class="mt-4 pt-4 border-t border-slate-700">
-                            🔍 <span class="font-semibold">Looking for Opportunities:</span>
-                            <br>
-                            🌐 I am currently actively seeking research or engineering positions related to Multimodal Large Models.
-                            <br>
-                            🔬 I am particularly interested in opportunities where I can apply my research skills to real-world challenges and contribute to cutting-edge projects.
-                            <br>
-                            📩 If you have any potential collaborations or suitable job openings, please feel free to contact me via <a href="mailto:zjrandomyeah@gmail.com" class="text-amber-400 hover:underline font-semibold">Email</a>.
+                        <p class="text-gray-300 mb-4">
+                            Unified VLM framework incorporating 3D Reconstructive instruction tuning, 
+                            processing monocular video to derive implicit 3D tokens for spatial assistance 
+                            and embodied reasoning.
                         </p>
-                        <p class="mt-2">
-                            🔍 <span class="font-semibold">求职机会：</span>
-                            <br>
-                            🌐 我目前正在积极寻找多模态大模型相关的研究或工程岗位。
-                            <br>
-                            🔬 特别关注于提升模型在三维空间感知、理解、推理与规划方面的能力。
-                            <br>
-                            💼 我对能够将我的研究技能应用于实际挑战并为这些领域的前沿项目做出贡献的机会特别感兴趣。
-                            <br>
-                            📩 如果您有任何潜在的合作或合适的工作机会，请随时通过<a href="mailto:zjrandomyeah@gmail.com" class="text-amber-400 hover:underline font-semibold">电子邮件</a>与我联系。
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://arxiv.org/abs/2505.20279" target="_blank" 
+                               class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg hover:scale-105 transition">
+                                <i class="fas fa-file-pdf mr-2"></i>Paper
+                            </a>
+                            <a href="https://github.com/VITA-Group/VLM-3R" target="_blank"
+                               class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg hover:scale-105 transition">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
+                            <a href="https://vlm-3r.github.io/" target="_blank"
+                               class="px-4 py-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg hover:scale-105 transition">
+                                <i class="fas fa-globe mr-2"></i>Project
+                            </a>
+                            <button onclick="openVideoModal('projects/vlm3r/arc-dynamic.mp4')"
+                                    class="px-4 py-2 bg-gradient-to-r from-red-500 to-orange-500 rounded-lg hover:scale-105 transition">
+                                <i class="fas fa-play mr-2"></i>Demo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <video class="w-full rounded-lg shadow-xl hover:scale-105 transition cursor-pointer" 
+                               autoplay muted loop playsinline
+                               onclick="openVideoModal('projects/vlm3r/arc-dynamic.mp4')">
+                            <source src="projects/vlm3r/arc-dynamic.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DynamicVerse -->
+            <div class="pub-card mb-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <div class="lg:w-2/3">
+                        <h3 class="text-2xl font-bold mb-2 text-purple-400">
+                            DynamicVerse: Physically-Aware Multimodal Modeling for Dynamic 4D Worlds
+                        </h3>
+                        <p class="text-sm text-gray-400 mb-3">
+                            <span class="text-cyan-400">Preprint</span> | 
+                            Kairun Wen*, Yuzhi Huang*, ..., <strong>Jian Zhang</strong>, et al.
                         </p>
+                        <p class="text-gray-300 mb-4">
+                            Large-scale dataset with 100K+ videos, 800K+ masks, and 10M+ frames for 
+                            understanding dynamic physical worlds with evolving 3D structure and motion.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-gray-700 rounded-lg opacity-50">
+                                <i class="fas fa-file-pdf mr-2"></i>Paper (Soon)
+                            </span>
+                            <span class="px-4 py-2 bg-gray-700 rounded-lg opacity-50">
+                                <i class="fab fa-github mr-2"></i>Code (Soon)
+                            </span>
+                            <a href="https://dynamic-verse.github.io/" target="_blank"
+                               class="px-4 py-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg hover:scale-105 transition">
+                                <i class="fas fa-globe mr-2"></i>Project
+                            </a>
+                            <button onclick="openVideoModal('projects/dynamicverse/DynamicVerse-preview.mp4')"
+                                    class="px-4 py-2 bg-gradient-to-r from-red-500 to-orange-500 rounded-lg hover:scale-105 transition">
+                                <i class="fas fa-play mr-2"></i>Demo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <video class="w-full rounded-lg shadow-xl hover:scale-105 transition cursor-pointer"
+                               autoplay muted loop playsinline
+                               onclick="openVideoModal('projects/dynamicverse/DynamicVerse-preview.mp4')">
+                            <source src="projects/dynamicverse/DynamicVerse-preview.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Large Spatial Model -->
+            <div class="pub-card mb-8" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <div class="lg:w-2/3">
+                        <h3 class="text-2xl font-bold mb-2 text-cyan-400">
+                            Large Spatial Model: End-to-end Unposed Images to Semantic 3D
+                        </h3>
+                        <p class="text-sm text-gray-400 mb-3">
+                            <span class="text-purple-400">NeurIPS 2024</span> | 
+                            <strong>Jian Zhang*</strong>, Zhiwen Fan*, et al.
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Directly processes unposed RGB images into semantic radiance fields, achieving 
+                            real-time semantic 3D reconstruction through simultaneous geometry, appearance, 
+                            and semantics estimation.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://arxiv.org/abs/2410.18956" target="_blank"
+                               class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg hover:scale-105 transition">
+                                <i class="fas fa-file-pdf mr-2"></i>Paper
+                            </a>
+                            <a href="https://github.com/NVlabs/LSM" target="_blank"
+                               class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg hover:scale-105 transition">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
+                            <a href="https://largespatialmodel.github.io/" target="_blank"
+                               class="px-4 py-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg hover:scale-105 transition">
+                                <i class="fas fa-globe mr-2"></i>Project
+                            </a>
+                            <button onclick="openVideoModal('projects/lsm/LSM_demo.mp4')"
+                                    class="px-4 py-2 bg-gradient-to-r from-red-500 to-orange-500 rounded-lg hover:scale-105 transition">
+                                <i class="fas fa-play mr-2"></i>Demo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <video class="w-full rounded-lg shadow-xl hover:scale-105 transition cursor-pointer"
+                               autoplay muted loop playsinline
+                               onclick="openVideoModal('projects/lsm/LSM_demo.mp4')">
+                            <source src="projects/lsm/LSM_demo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- InstantSplat -->
+            <div class="pub-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <div class="lg:w-2/3">
+                        <h3 class="text-2xl font-bold mb-2 text-purple-400">
+                            InstantSplat: Sparse-view Gaussian Splatting in Seconds
+                        </h3>
+                        <p class="text-sm text-gray-400 mb-3">
+                            <span class="text-cyan-400">ArXiv 2024</span> | 
+                            Zhiwen Fan*, Kairun Wen*, ..., <strong>Jian Zhang</strong>, et al.
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Lightning-fast sparse-view 3D reconstruction using self-supervised framework 
+                            that optimizes scene representation and camera poses through differentiable 
+                            neural rendering.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://arxiv.org/abs/2403.20309" target="_blank"
+                               class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg hover:scale-105 transition">
+                                <i class="fas fa-file-pdf mr-2"></i>Paper
+                            </a>
+                            <a href="https://github.com/NVlabs/InstantSplat" target="_blank"
+                               class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg hover:scale-105 transition">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
+                            <a href="https://instantsplat.github.io/" target="_blank"
+                               class="px-4 py-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg hover:scale-105 transition">
+                                <i class="fas fa-globe mr-2"></i>Project
+                            </a>
+                            <button onclick="openVideoModal('projects/instantsplat/demo1.mp4')"
+                                    class="px-4 py-2 bg-gradient-to-r from-red-500 to-orange-500 rounded-lg hover:scale-105 transition">
+                                <i class="fas fa-play mr-2"></i>Demo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <video class="w-full rounded-lg shadow-xl hover:scale-105 transition cursor-pointer"
+                               autoplay muted loop playsinline
+                               onclick="openVideoModal('projects/instantsplat/demo1.mp4')">
+                            <source src="projects/instantsplat/demo1.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-
-    <main class="container mx-auto px-6 py-16">
-
-        <section id="publications" class="py-16 rounded-xl">
-            <h2 class="section-title">Publications</h2>
-            <div class="space-y-10 max-w-5xl mx-auto">
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-amber-400 mb-3">VLM-3R: Vision-Language Models Augmented with Instruction-Aligned 3D Reconstruction (ArXiv, 2025)</h3>
-                    <p class="text-sm text-slate-400 mb-4">
-                        Authors: <strong>Jian Zhang*</strong>, Zhiwen Fan*, Renjie Li, Junge Zhang, Runjin Chen, Hezhen Hu, Kevin Wang, Huaizhi Qu, Dilin Wang, Zhicheng Yan, Hongyu Xu, Justin Theiss, Tianlong Chen, Jiachen Li, Zhengzhong Tu, Zhangyang Wang, Rakesh Ranjan (*Equal Contribution)
-                    </p>
-                    <p class="mb-4 text-base leading-relaxed text-slate-300">
-                        Abstract: This work introduces VLM-3R, a unified Vision-Language Model (VLM) framework incorporating 3D Reconstructive instruction tuning. VLM-3R processes monocular video to derive implicit 3D tokens, aligning spatial context with language instructions for 3D spatial assistance and embodied reasoning. It also introduces the Vision-Spatial-Temporal Intelligence benchmark.
-                    </p>
-                    <video class="publication-video" controls autoplay muted loop poster="https://placehold.co/640x360/334155/e2e8f0?text=VLM-3R+Video+Poster">
-                        <source src="projects\vlm3r\arc-dynamic.mp4" type="video/mp4">
-                        Your browser does not support the video tag. 请更新您的浏览器或使用支持HTML5视频的浏览器。
-                    </video>
-                    <div class="flex flex-wrap gap-4 items-center mt-2">
-                        <a href="https://arxiv.org/abs/2505.20279" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">📄 Paper</a>
-                        <a href="https://github.com/VITA-Group/VLM-3R" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">💻 Code</a>
-                        <a href="https://vlm-3r.github.io/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">🌐 Project Page</a>
+    </section>
+    
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent"
+                data-aos="fade-up">
+                Let's Connect
+            </h2>
+            
+            <p class="text-xl text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="100">
+                Open to research collaborations and opportunities in 3D Vision & AI
+            </p>
+            
+            <!-- Open for Opportunities -->
+            <div class="contact-card mb-8" data-aos="fade-up" data-aos-delay="150">
+                <h3 class="text-2xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                    Open for Opportunities
+                </h3>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <div class="text-center p-3 rounded bg-gray-800/30 hover:bg-gray-800/50 transition">
+                        <div class="text-3xl mb-2">🎬</div>
+                        <p class="text-sm text-gray-300">3D-consistent video generation</p>
                     </div>
-                 </div>
-
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-amber-400 mb-3">DynamicVerse: Physically-Aware Multimodal Modeling for Dynamic 4D Worlds (Preprint)</h3>
-                    <p class="text-sm text-slate-400 mb-4">
-                        Authors: Kairun Wen*, Yuzhi Huang*, Runyu Chen, Hui Zheng, Yunlong Lin, Panwang Pan, Chenxin Li, Wenyan Cong, <strong>Jian Zhang</strong>, Junbin Lu, Chenguo Lin, Dilin Wang, Zhicheng Yan, Hongyu Xu, Justin Theiss, Yue Huang, Xinghao Ding, Rakesh Ranjan, Zhiwen Fan (*Equal Contribution)
-                    </p>
-                    <p class="mb-4 text-base leading-relaxed text-slate-300">
-                        Abstract: Understanding the dynamic physical world, characterized by its evolving 3D structure, real-world motion, and semantic content with textual descriptions, is crucial for human-agent interaction and enables embodied agents to perceive and act within real environments with human‑like capabilities. However, existing datasets are often derived from limited simulators or utilize traditional Structure-from-Motion for up-to-scale annotation and offer limited descriptive captioning, which restricts the capacity of foundation models to accurately interpret real-world dynamics from monocular videos, commonly sourced from the internet. To bridge these gaps, we introduce DynamicVerse, a physical‑scale, multimodal 4D modeling framework for real-world video. We employ large vision, geometric, and multimodal models to interpret metric-scale static geometry, real-world dynamic motion, instance-level masks, and holistic descriptive captions. By integrating window-based Bundle Adjustment with global optimization, our method converts long real-world video sequences into a comprehensive 4D multimodal format. DynamicVerse delivers a large-scale dataset consists of 100K+ videos with 800K+ annotated masks and 10M+ frames from internet videos.
-                    </p>
-                    <video class="publication-video" controls autoplay muted loop poster="https://placehold.co/640x360/334155/e2e8f0?text=DynamicVerse+Video+Poster">
-                        <source src="projects/dynamicverse/DynamicVerse-preview.mp4" type="video/mp4">
-                        Your browser does not support the video tag. 请更新您的浏览器或使用支持HTML5视频的浏览器。
-                    </video>
-                    <div class="flex flex-wrap gap-4 items-center mt-2">
-                        <span class="text-slate-500 font-semibold">📄 Paper (Coming Soon)</span>
-                        <span class="text-slate-500 font-semibold">💻 Code (Coming Soon)</span>
-                        <a href="https://dynamic-verse.github.io/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">🌐 Project Page</a>
+                    <div class="text-center p-3 rounded bg-gray-800/30 hover:bg-gray-800/50 transition">
+                        <div class="text-3xl mb-2">🔬</div>
+                        <p class="text-sm text-gray-300">3D spatial understanding</p>
                     </div>
-                </div>
-
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-amber-400 mb-3">Large Spatial Model: End-to-end Unposed Images to Semantic 3D (NeurIPS, 2024)</h3>
-                    <p class="text-sm text-slate-400 mb-4">
-                        Authors: <strong>Jian Zhang*</strong>, Zhiwen Fan*, Wenyan Cong, Peihao Wang, Renjie Li, Kairun Wen, Shijie Zhou, Achuta Kadambi, Zhangyang Wang, Danfei Xu, Boris Ivanovic, Marco Pavone, Yue Wang (*Equal Contribution)
-                    </p>
-                    <p class="mb-4 text-base leading-relaxed text-slate-300">
-                        Abstract: This work introduces the Large Spatial Model (LSM), which directly processes unposed RGB images into semantic radiance fields. LSM simultaneously estimates geometry, appearance, and semantics in a single feed-forward pass, achieving real-time semantic 3D reconstruction for the first time.
-                    </p>
-                    <video class="publication-video" controls autoplay muted loop poster="https://placehold.co/640x360/334155/e2e8f0?text=LSM+Video+Poster">
-                        <source src="projects\lsm\LSM_demo.mp4" type="video/mp4">
-                        Your browser does not support the video tag. 请更新您的浏览器或使用支持HTML5视频的浏览器。
-                    </video>
-                    <div class="flex flex-wrap gap-4 items-center mt-2">
-                        <a href="https://arxiv.org/abs/2410.18956" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">📄 Paper</a>
-                        <a href="https://github.com/NVlabs/LSM" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">💻 Code</a>
-                        <a href="https://largespatialmodel.github.io/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">🌐 Project Page</a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-amber-400 mb-3">InstantSplat: Sparse-view Gaussian Splatting in Seconds (ArXiv, 2024)</h3>
-                    <p class="text-sm text-slate-400 mb-4">
-                        Authors: Zhiwen Fan*, Kairun Wen*, Wenyan Cong*, Kevin Wang, <strong>Jian Zhang</strong>, Xinghao Ding, Danfei Xu, Boris Ivanovic, Marco Pavone, Georgios Pavlakos, Zhangyang Wang, Yue Wang (*Equal Contribution)
-                    </p>
-                    <p class="mb-4 text-base leading-relaxed text-slate-300">
-                        Abstract: While neural 3D reconstruction has advanced substantially, its performance significantly degrades with sparse-view data, which limits its broader applicability, since SfM is often unreliable in sparse-view scenarios where feature matches are scarce. In this paper, we introduce InstantSplat, a novel approach for addressing sparse-view 3D scene reconstruction at lightning-fast speed. InstantSplat employs a self-supervised framework that optimizes 3D scene representation and camera poses by unprojecting 2D pixels into 3D space and aligning them using differentiable neural rendering.
-                    </p>
-                    <video class="publication-video" controls autoplay muted loop poster="https://placehold.co/640x360/334155/e2e8f0?text=InstantSplat+Video+Poster">
-                        <source src="projects\instantsplat\demo1.mp4" type="video/mp4">
-                        Your browser does not support the video tag. 请更新您的浏览器或使用支持HTML5视频的浏览器。
-                    </video>
-                    <div class="flex flex-wrap gap-4 items-center mt-2">
-                        <a href="https://arxiv.org/abs/2403.20309" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">📄 Paper</a>
-                        <a href="https://github.com/NVlabs/InstantSplat" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">💻 Code</a>
-                        <a href="https://instantsplat.github.io/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 font-semibold hover:underline transition-colors duration-300">🌐 Project Page</a>
+                    <div class="text-center p-3 rounded bg-gray-800/30 hover:bg-gray-800/50 transition">
+                        <div class="text-3xl mb-2">🤝</div>
+                        <p class="text-sm text-gray-300">Open to research collaborations</p>
                     </div>
                 </div>
             </div>
-        </section>
-
-    </main>
-
+            
+            <div class="flex justify-center" data-aos="fade-up" data-aos-delay="200">
+                <a href="mailto:zjrandomyeah@gmail.com" 
+                   class="px-6 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg hover:scale-105 transition text-lg font-semibold">
+                    <i class="fas fa-envelope mr-2"></i>Send Email
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <span class="close-modal" onclick="closeVideoModal()">&times;</span>
+        <div class="video-modal-content">
+            <video id="modalVideo" controls class="w-full h-full">
+                <source src="" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
     <script>
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetElement = document.querySelector(this.getAttribute('href'));
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100
+        });
+        
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').style.opacity = '0';
+                document.getElementById('loader').style.visibility = 'hidden';
+            }, 1500);
+        });
+        
+        // Cursor Glow Effect
+        const cursorGlow = document.getElementById('cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+        
+        // Three.js Background
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ 
+            canvas: document.getElementById('three-canvas'),
+            alpha: true 
+        });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.position.z = 5;
+        
+        // Create geometric particles
+        const geometry = new THREE.BufferGeometry();
+        const vertices = [];
+        const colors = [];
+        
+        for (let i = 0; i < 1000; i++) {
+            vertices.push(
+                Math.random() * 10 - 5,
+                Math.random() * 10 - 5,
+                Math.random() * 10 - 5
+            );
+            
+            const color = new THREE.Color();
+            color.setHSL(Math.random() * 0.3 + 0.5, 0.7, 0.5);
+            colors.push(color.r, color.g, color.b);
+        }
+        
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+        
+        const material = new THREE.PointsMaterial({
+            size: 0.02,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.8
+        });
+        
+        const points = new THREE.Points(geometry, material);
+        scene.add(points);
+        
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            points.rotation.x += 0.0005;
+            points.rotation.y += 0.0005;
+            renderer.render(scene, camera);
+        }
+        animate();
+        
+        // Resize handler
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        
+        // Particles.js Configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 50,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: ['#667eea', '#764ba2', '#00ffff', '#ff00ff']
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#667eea',
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
                 }
-
-                // Active link highlighting
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active');
-                });
-                this.classList.add('active');
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 0.5
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+        
+        // GSAP ScrollTrigger Animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Parallax effect for sections
+        gsap.utils.toArray('.pub-card').forEach((card, i) => {
+            gsap.to(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true
+                },
+                y: 0,
+                ease: 'none'
             });
         });
-
-        // Update active link on scroll
+        
+        
+        // Navigation active state
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
-
+        
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) { // Adjust offset as needed
+                if (pageYOffset >= sectionTop - 100) {
                     current = section.getAttribute('id');
                 }
             });
-
+            
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href').substring(1) === current) {
                     link.classList.add('active');
                 }
             });
-            
-            // If no section is explicitly current (e.g. at the very top, or scrolled past the last section),
-            // and there's at least one nav link and at least one section,
-            // default to highlighting the first nav link if scrolled to the top.
-            if (!current && navLinks.length > 0 && sections.length > 0) {
-                if (pageYOffset < sections[0].offsetTop - 150) {
-                     navLinks[0].classList.add('active');
-                }
-            } else if (navLinks.length > 0 && sections.length === 0) { 
-                // If there are no sections at all, always highlight the first nav link.
-                 navLinks[0].classList.add('active');
-            } else if (navLinks.length > 0 && current === '' && pageYOffset >= sections[sections.length-1].offsetTop + sections[sections.length-1].offsetHeight - window.innerHeight ) {
-                // If scrolled to the bottom and past the last section, keep the last section's link active
-                 navLinks.forEach(link => {
-                    if (link.getAttribute('href').substring(1) === sections[sections.length-1].getAttribute('id')) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-
-
         });
+        
+        // Smooth scroll for navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Video Modal Functions
+        function openVideoModal(videoSrc) {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            video.src = videoSrc;
+            modal.classList.add('active');
+            video.play();
+        }
+        
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            modal.classList.remove('active');
+            video.pause();
+            video.src = '';
+        }
+        
+        // Close modal on background click
+        document.getElementById('videoModal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                closeVideoModal();
+            }
+        });
+        
+        // Typewriter effect enhancement
+        const typewriterText = document.querySelector('.typewriter');
+        if (typewriterText) {
+            const text = typewriterText.textContent;
+            typewriterText.textContent = '';
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    typewriterText.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            
+            setTimeout(typeWriter, 2000);
+        }
+        
     </script>
-
 </body>
 </html>
