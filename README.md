@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌟 Jian Zhang | 张坚
+# 🌟 Jian Zhang | 张舰
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Space+Grotesk&size=30&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=3D+Vision+%26+AI+Researcher;Exploring+3D-Consistent+Generation;Building+Intelligent+3D+Agents" alt="Typing SVG" />
 
@@ -16,7 +16,8 @@
 <table>
 <tr>
 <td width="35%" align="center">
-<img src="jian_zhang.jpg" alt="Jian Zhang" width="200" height="200" style="border-radius: 50%; object-fit: cover; box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);">
+
+<img src="jian_zhang.jpg" alt="Jian Zhang" width="200" height="200">
 
 <br>
 
