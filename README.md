@@ -112,16 +112,6 @@ Lightning-fast sparse-view 3D scene reconstruction using self-supervised framewo
 
 ---
 
-## 🎯 Research Impact & Metrics
-
-<div align="center">
-
-![Research Stats](https://github-readme-stats.vercel.app/api?username=Jian-Zhang-3DV&show_icons=true&theme=transparent&count_private=true&include_all_commits=true)
-
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=Jian-Zhang-3DV&theme=transparent&hide_border=true)](https://git.io/streak-stats)
-
-</div>
-
 ---
 
 ## 🌟 Open for Opportunities
@@ -162,7 +152,11 @@ Lightning-fast sparse-view 3D scene reconstruction using self-supervised framewo
 
 ---
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=100&section=footer&text=Thanks%20for%20visiting!&fontSize=16" width="100%">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=100&section=footer&text=Thanks%20for%20visiting!&fontSize=16&fontColor=ffffff">
+  <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=100&section=footer&text=Thanks%20for%20visiting!&fontSize=16&fontColor=333333">
+  <img alt="Thanks for visiting!" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=100&section=footer&text=Thanks%20for%20visiting!&fontSize=16&fontColor=333333" width="100%">
+</picture>
 
 *Building the future of 3D AI, one breakthrough at a time* ✨
 
