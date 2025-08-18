@@ -116,9 +116,9 @@ Lightning-fast sparse-view 3D scene reconstruction using self-supervised framewo
 
 <div align="center">
 
-![Research Stats](https://github-readme-stats.vercel.app/api?username=Jian-Zhang-3DV&show_icons=true&theme=tokyonight&count_private=true&include_all_commits=true)
+![Research Stats](https://github-readme-stats.vercel.app/api?username=Jian-Zhang-3DV&show_icons=true&theme=transparent&count_private=true&include_all_commits=true)
 
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=Jian-Zhang-3DV&theme=dark&hide_border=true)](https://git.io/streak-stats)
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=Jian-Zhang-3DV&theme=transparent&hide_border=true)](https://git.io/streak-stats)
 
 </div>
 
