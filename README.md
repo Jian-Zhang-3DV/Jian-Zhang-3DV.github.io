@@ -55,6 +55,8 @@
 ## 💼 Experience
 
 - **Research Intern** | *Baidu Inc.* (Aug 2025 - Present) - Video Generation Research
+- **Research Assistant** | *Texas A&M University (TAMU)* (May 2025 - Aug 2025) - 3D Vision & Embodied Intelligence
+- **Research Assistant** | *VITA Group, UT Austin* (Jan 2024 - May 2025) - 3D Spatial Reconstruction & Understanding
 
 ---
 
