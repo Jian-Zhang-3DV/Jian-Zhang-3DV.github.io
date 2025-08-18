@@ -1,55 +1,235 @@
-# 👋 Jian Zhang
+<div align="center">
+
+# 🌟 Jian Zhang | 张坚
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Space+Grotesk&size=30&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=3D+Vision+%26+AI+Researcher;Exploring+3D-Consistent+Generation;Building+Intelligent+3D+Agents" alt="Typing SVG" />
+
+[![Homepage](https://img.shields.io/badge/🌐_Homepage-Visit_Site-00D9FF?style=for-the-badge&logo=github-pages)](https://jian-zhang-3dv.github.io/Jian-Zhang-3DV/)
+[![Google Scholar](https://img.shields.io/badge/📚_Scholar-4285F4?style=for-the-badge&logo=google-scholar&logoColor=white)](https://scholar.google.com/citations?user=qBNtBsAAAAAJ)
+[![CV](https://img.shields.io/badge/📄_CV-Download-FF6B6B?style=for-the-badge&logo=adobe-acrobat-reader)](https://jian-zhang-3dv.github.io/Jian-Zhang-3DV/cv/_Resume__Jian_Zhang.pdf)
+[![Email](https://img.shields.io/badge/📧_Email-Contact-FFA726?style=for-the-badge&logo=gmail&logoColor=white)](mailto:zjrandomyeah@gmail.com)
+
+</div>
+
+---
 
 <table>
 <tr>
-<td width="150">
-<img src="jian_zhang.jpg" alt="Jian Zhang" width="150">
+<td width="35%" align="center">
+<img src="jian_zhang.jpg" alt="Jian Zhang" style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover; box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);">
+
+<br>
+
+**🎓 Graduate Student**  
+*Xiamen University*
+
+**🔬 Research Intern**  
+*Baidu Inc.*
+
 </td>
-<td>
-<em>🎓 Graduate Student at Xiamen University, exploring Vision-Language Models (VLM) and 3D Perception.</em>
-<br><br>
-🏫 I am currently a graduate student at <a href="https://www.xmu.edu.cn/">Xiamen University</a> (September 2023 - Present), supervised by Professor <a href="https://huangyue05.github.io/">Yue Huang</a>. I obtained my Bachelor's degree in Artificial Intelligence from <a href="http://www.ncu.edu.cn/">Nanchang University</a> (September 2019 - June 2023).
-<br><br>
-🤖 My long-term research goal is to create AI agents capable of efficient industrial production in real-world environments, thereby significantly enhancing productivity.
+<td width="65%">
+
+## 🚀 Research Vision
+
+> *My long-term vision follows a progressive pathway: first achieving **3D-consistent content generation**, then developing comprehensive **3D understanding**, and ultimately enabling intelligent **embodied agents** that can navigate and interact within these 3D environments.*
+
+### 🎯 Current Focus Areas
+
+```mermaid
+graph LR
+    A[🎬 3D-Consistent<br>Content Generation] --> B[🔬 3D Spatial<br>Understanding]
+    B --> C[🤖 3D Embodied<br>Agents]
+    
+    A -.-> D[🎮 Virtual Worlds]
+    B -.-> D
+    C -.-> D
+    
+    style A fill:#00D9FF,stroke:#0891b2,color:#000
+    style B fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    style C fill:#F59E0B,stroke:#D97706,color:#000
+    style D fill:#EF4444,stroke:#DC2626,color:#fff
+```
+
 </td>
 </tr>
 </table>
 
-**🔍 Looking for Opportunities:**
-* 🌐 I am currently actively seeking research or engineering positions related to Multimodal Large Models.
-* 🔬 I am particularly interested in opportunities where I can apply my research skills to real-world challenges and contribute to cutting-edge projects.
-* 📩 If you have any potential collaborations or suitable job openings, please feel free to contact me.
+---
 
-**🔍 求职机会：**
-* 🌐 我目前正在积极寻找多模态大模型相关的研究或工程岗位。
-* 🔬 特别关注于提升模型在三维空间感知、理解、推理与规划方面的能力。
-* 💼 我对能够将我的研究技能应用于实际挑战并为这些领域的前沿项目做出贡献的机会特别感兴趣。
-* 📩 如果您有任何潜在的合作或合适的工作机会，请随时与我联系。
+## 🏫 Education & Experience
 
-**📬 Contact:**
-*   📧 [Email](mailto:zjrandomyeah@gmail.com)
-*   🌐 [Homepage](https://jian-zhang-3dv.github.io/Jian-Zhang-3DV/)
-*   📚 [Google Scholar](https://scholar.google.com/citations?user=qBNtBsAAAAAJ&hl=en&oi=sra)
-*   📄 [CV](https://jian-zhang-3dv.github.io/Jian-Zhang-3DV/cv/CV_Jian_Zhang.pdf)
+<div align="center">
 
-## 📝 Publications
+| 🎓 **Education** | 💼 **Experience** |
+|:---|:---|
+| **🎓 Graduate Student** <br> Xiamen University <br> *Sept 2023 - Present* <br> <sub>Supervisor: Prof. Yue Huang</sub> | **🔬 Research Intern** <br> Baidu Inc. <br> *Aug 2025 - Present* <br> <sub>Video Generation Research</sub> |
+| **🎓 B.S. Artificial Intelligence** <br> Nanchang University <br> *Sept 2019 - June 2023* | |
 
-### 🔥 VLM-3R: Vision-Language Models Augmented with Instruction-Aligned 3D Reconstruction (ArXiv, 2025)
-*   **Authors:** **Jian Zhang***, Zhiwen Fan*, Renjie Li, Junge Zhang, Runjin Chen, Hezhen Hu, Kevin Wang, Huaizhi Qu, Dilin Wang, Zhicheng Yan, Hongyu Xu, Justin Theiss, Tianlong Chen, Jiachen Li, Zhengzhong Tu, Zhangyang Wang, Rakesh Ranjan (*Equal Contribution)
-*   **Abstract:** This work introduces VLM-3R, a unified Vision-Language Model (VLM) framework incorporating 3D Reconstructive instruction tuning. VLM-3R processes monocular video to derive implicit 3D tokens, aligning spatial context with language instructions for 3D spatial assistance and embodied reasoning. It also introduces the Vision-Spatial-Temporal Intelligence benchmark.
-*   **Links:** [📄 Paper](https://arxiv.org/abs/2505.20279) | [💻 Code](https://github.com/VITA-Group/VLM-3R) | [🌐 Project Page](https://vlm-3r.github.io/)
+</div>
 
-### 🌟 DynamicVerse: Physically-Aware Multimodal Modeling for Dynamic 4D Worlds (Preprint)
-*   **Authors:** Kairun Wen*, Yuzhi Huang*, Runyu Chen, Hui Zheng, Yunlong Lin, Panwang Pan, Chenxin Li, Wenyan Cong, **Jian Zhang**, Junbin Lu, Chenguo Lin, Dilin Wang, Zhicheng Yan, Hongyu Xu, Justin Theiss, Yue Huang, Xinghao Ding, Rakesh Ranjan, Zhiwen Fan (*Equal Contribution)
-*   **Abstract:** Understanding the dynamic physical world, characterized by its evolving 3D structure, real-world motion, and semantic content with textual descriptions, is crucial for human-agent interaction and enables embodied agents to perceive and act within real environments with human‑like capabilities. [...] DynamicVerse delivers a large-scale dataset consists of 100K+ videos with 800K+ annotated masks and 10M+ frames from internet videos.
-*   **Links:** 📄 Paper (Coming Soon) | 💻 Code (Coming Soon) | [🌐 Project Page](https://dynamic-verse.github.io/)
+---
 
-### 🏆 Large Spatial Model: End-to-end Unposed Images to Semantic 3D (NeurIPS, 2024)
-*   **Authors:** **Jian Zhang***, Zhiwen Fan*, Wenyan Cong, Peihao Wang, Renjie Li, Kairun Wen, Shijie Zhou, Achuta Kadambi, Zhangyang Wang, Danfei Xu, Boris Ivanovic, Marco Pavone, Yue Wang (*Equal Contribution)
-*   **Abstract:** This work introduces the Large Spatial Model (LSM), which directly processes unposed RGB images into semantic radiance fields. LSM simultaneously estimates geometry, appearance, and semantics in a single feed-forward pass, achieving real-time semantic 3D reconstruction for the first time.
-*   **Links:** [📄 Paper](https://arxiv.org/abs/2410.18956) | [💻 Code](https://github.com/NVlabs/LSM) | [🌐 Project Page](https://largespatialmodel.github.io/)
+## 📚 Featured Publications
 
-### ⚡ InstantSplat: Sparse-view Gaussian Splatting in Seconds (ArXiv, 2024)
-*   **Authors:** Zhiwen Fan*, Kairun Wen*, Wenyan Cong*, Kevin Wang, **Jian Zhang**, Xinghao Ding, Danfei Xu, Boris Ivanovic, Marco Pavone, Georgios Pavlakos, Zhangyang Wang, Yue Wang (*Equal Contribution)
-*   **Abstract:** While neural 3D reconstruction has advanced substantially, its performance significantly degrades with sparse-view data, which limits its broader applicability, since SfM is often unreliable in sparse-view scenarios where feature matches are scarce. In this paper, we introduce InstantSplat, a novel approach for addressing sparse-view 3D scene reconstruction at lightning-fast speed. InstantSplat employs a self-supervised framework that optimizes 3D scene representation and camera poses by unprojecting 2D pixels into 3D space and aligning them using differentiable neural rendering.
-*   **Links:** [📄 Paper](https://arxiv.org/abs/2403.20309) | [💻 Code](https://github.com/NVlabs/InstantSplat) | [🌐 Project Page](https://instantsplat.github.io/)
+<div align="center">
+
+### 🔥 **Recent Highlights**
+
+</div>
+
+<table>
+<tr>
+<td width="70%">
+
+### 🌟 VLM-3R: Vision-Language Models Augmented with 3D Reconstruction
+**ArXiv 2025** | **Jian Zhang***, Zhiwen Fan*, et al.
+
+Unified VLM framework incorporating 3D Reconstructive instruction tuning, processing monocular video to derive implicit 3D tokens for spatial assistance and embodied reasoning.
+
+[![Paper](https://img.shields.io/badge/📄_Paper-ArXiv-B31B1B?style=flat-square)](https://arxiv.org/abs/2505.20279)
+[![Code](https://img.shields.io/badge/💻_Code-GitHub-000000?style=flat-square&logo=github)](https://github.com/VITA-Group/VLM-3R)
+[![Project](https://img.shields.io/badge/🌐_Project-Page-00D9FF?style=flat-square)](https://vlm-3r.github.io/)
+[![Demo](https://img.shields.io/badge/🎮_Demo-Interactive-FF6B6B?style=flat-square)](https://vlm-3r.github.io/)
+
+</td>
+<td width="30%" align="center">
+<img src="projects/vlm3r/arc-dynamic.mp4" alt="VLM-3R Demo" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+</td>
+</tr>
+</table>
+
+---
+
+<table>
+<tr>
+<td width="30%" align="center">
+<img src="projects/dynamicverse/DynamicVerse-preview.mp4" alt="DynamicVerse Demo" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+</td>
+<td width="70%">
+
+### 🌍 DynamicVerse: Physically-Aware Multimodal Modeling for Dynamic 4D Worlds
+**Preprint** | Kairun Wen*, Yuzhi Huang*, ..., **Jian Zhang**, et al.
+
+Large-scale dataset with 100K+ videos, 800K+ masks, and 10M+ frames for understanding dynamic physical worlds with evolving 3D structure and motion.
+
+[![Project](https://img.shields.io/badge/🌐_Project-Page-00D9FF?style=flat-square)](https://dynamic-verse.github.io/)
+[![Paper](https://img.shields.io/badge/📄_Paper-Coming_Soon-gray?style=flat-square)]()
+[![Code](https://img.shields.io/badge/💻_Code-Coming_Soon-gray?style=flat-square)]()
+[![Demo](https://img.shields.io/badge/🎮_Demo-Interactive-FF6B6B?style=flat-square)](https://dynamic-verse.github.io/)
+
+</td>
+</tr>
+</table>
+
+---
+
+<table>
+<tr>
+<td width="70%">
+
+### 🏆 Large Spatial Model: End-to-end Unposed Images to Semantic 3D
+**NeurIPS 2024** | **Jian Zhang***, Zhiwen Fan*, et al.
+
+First real-time semantic 3D reconstruction system that directly processes unposed RGB images into semantic radiance fields in a single feed-forward pass.
+
+[![Paper](https://img.shields.io/badge/📄_Paper-NeurIPS-B31B1B?style=flat-square)](https://arxiv.org/abs/2410.18956)
+[![Code](https://img.shields.io/badge/💻_Code-GitHub-000000?style=flat-square&logo=github)](https://github.com/NVlabs/LSM)
+[![Project](https://img.shields.io/badge/🌐_Project-Page-00D9FF?style=flat-square)](https://largespatialmodel.github.io/)
+
+</td>
+<td width="30%" align="center">
+<img src="projects/lsm/LSM_demo.mp4" alt="LSM Demo" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+</td>
+</tr>
+</table>
+
+---
+
+<table>
+<tr>
+<td width="30%" align="center">
+<img src="projects/instantsplat/demo1.mp4" alt="InstantSplat Demo" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+</td>
+<td width="70%">
+
+### ⚡ InstantSplat: Sparse-view Gaussian Splatting in Seconds
+**ArXiv 2024** | Zhiwen Fan*, Kairun Wen*, ..., **Jian Zhang**, et al.
+
+Lightning-fast sparse-view 3D scene reconstruction using self-supervised framework that optimizes 3D scene representation and camera poses simultaneously.
+
+[![Paper](https://img.shields.io/badge/📄_Paper-ArXiv-B31B1B?style=flat-square)](https://arxiv.org/abs/2403.20309)
+[![Code](https://img.shields.io/badge/💻_Code-GitHub-000000?style=flat-square&logo=github)](https://github.com/NVlabs/InstantSplat)
+[![Project](https://img.shields.io/badge/🌐_Project-Page-00D9FF?style=flat-square)](https://instantsplat.github.io/)
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🎯 Research Impact & Metrics
+
+<div align="center">
+
+![Research Stats](https://github-readme-stats.vercel.app/api?username=Jian-Zhang-3DV&show_icons=true&theme=tokyonight&count_private=true&include_all_commits=true)
+
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=Jian-Zhang-3DV&theme=tokyonight&hide_border=true)](https://git.io/streak-stats)
+
+</div>
+
+---
+
+## 🌟 Open for Opportunities
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="33%">
+<h3>🎬</h3>
+<b>3D-Consistent Video Generation</b>
+<br><sub>Creating spatially coherent visual content</sub>
+</td>
+<td align="center" width="33%">
+<h3>🔬</h3>
+<b>3D Spatial Understanding</b>
+<br><sub>Developing comprehensive 3D perception</sub>
+</td>
+<td align="center" width="33%">
+<h3>🤝</h3>
+<b>Research Collaborations</b>
+<br><sub>Building the future of 3D AI together</sub>
+</td>
+</tr>
+</table>
+
+### 💼 Currently Seeking
+
+I am actively looking for **research and engineering positions** related to:
+- 🎥 **3D-Consistent Video Generation**
+- 🤖 **Multimodal Large Models**
+- 🌐 **3D Vision & Embodied AI**
+- 🎮 **Virtual World Technologies**
+
+*Particularly interested in opportunities that bridge cutting-edge research with real-world applications.*
+
+</div>
+
+---
+
+## 📫 Let's Connect
+
+<div align="center">
+
+[![Email](https://img.shields.io/badge/📧_zjrandomyeah@gmail.com-FFA726?style=for-the-badge&logo=gmail&logoColor=white)](mailto:zjrandomyeah@gmail.com)
+[![Homepage](https://img.shields.io/badge/🌐_Personal_Website-00D9FF?style=for-the-badge&logo=github-pages)](https://jian-zhang-3dv.github.io/Jian-Zhang-3DV/)
+[![GitHub](https://img.shields.io/badge/💻_GitHub-000000?style=for-the-badge&logo=github)](https://github.com/Jian-Zhang-3DV)
+[![Google Scholar](https://img.shields.io/badge/📚_Google_Scholar-4285F4?style=for-the-badge&logo=google-scholar&logoColor=white)](https://scholar.google.com/citations?user=qBNtBsAAAAAJ)
+
+---
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=100&section=footer&text=Thanks%20for%20visiting!&fontSize=16&fontColor=ffffff" width="100%">
+
+*Building the future of 3D AI, one breakthrough at a time* ✨
+
+</div>
