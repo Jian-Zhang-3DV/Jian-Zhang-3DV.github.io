@@ -162,7 +162,7 @@ Lightning-fast sparse-view 3D scene reconstruction using self-supervised framewo
 
 ---
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=100&section=footer&text=Thanks%20for%20visiting!&fontSize=16&fontColor=333333" width="100%">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=100&section=footer&text=Thanks%20for%20visiting!&fontSize=16" width="100%">
 
 *Building the future of 3D AI, one breakthrough at a time* ✨
 
