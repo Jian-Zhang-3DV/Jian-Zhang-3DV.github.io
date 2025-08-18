@@ -15,7 +15,7 @@
 
 <div align="center">
 
-<img src="jian_zhang.jpg" alt="Jian Zhang" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover;">
+<img src="jian_zhang.jpg" alt="Jian Zhang" width="180" style="border-radius: 15px;">
 
 **🎓 Graduate Student** at *Xiamen University*  
 **🔬 Research Intern** at *Baidu Inc.*
