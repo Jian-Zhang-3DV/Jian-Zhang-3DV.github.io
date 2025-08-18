@@ -154,18 +154,13 @@ Lightning-fast sparse-view 3D scene reconstruction using self-supervised framewo
 
 ---
 
-## 📫 Let's Connect
+## 📫 Contact
 
 <div align="center">
 
 [![Email](https://img.shields.io/badge/📧_zjrandomyeah@gmail.com-FFA726?style=for-the-badge&logo=gmail&logoColor=white)](mailto:zjrandomyeah@gmail.com)
-[![Homepage](https://img.shields.io/badge/🌐_Personal_Website-00D9FF?style=for-the-badge&logo=github-pages)](https://jian-zhang-3dv.github.io/Jian-Zhang-3DV/)
-[![GitHub](https://img.shields.io/badge/💻_GitHub-000000?style=for-the-badge&logo=github)](https://github.com/Jian-Zhang-3DV)
-[![Google Scholar](https://img.shields.io/badge/📚_Google_Scholar-4285F4?style=for-the-badge&logo=google-scholar&logoColor=white)](https://scholar.google.com/citations?user=qBNtBsAAAAAJ)
 
 ---
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=100&section=footer&text=Thanks%20for%20visiting!&fontSize=16&fontColor=ffffff" width="100%">
 
 *Building the future of 3D AI, one breakthrough at a time* ✨
 
