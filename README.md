@@ -148,14 +148,6 @@ Lightning-fast sparse-view 3D scene reconstruction using self-supervised framewo
 </tr>
 </table>
 
-### 💼 Currently Seeking
-
-I am actively looking for **research and engineering positions** related to:
-- 🎥 **3D-Consistent Video Generation**
-- 🤖 **Multimodal Large Models**
-- 🌐 **3D Vision & Embodied AI**
-- 🎮 **Virtual World Technologies**
-
 *Particularly interested in opportunities that bridge cutting-edge research with real-world applications.*
 
 </div>
