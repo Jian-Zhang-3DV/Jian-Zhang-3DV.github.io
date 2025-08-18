@@ -36,11 +36,10 @@
 
 ### 🎯 Current Focus Areas
 
-**🎬 3D-Consistent Content Generation** → **🔬 3D Spatial Understanding** → **🤖 3D Embodied Agents**
-
-*↓*
-
-**🎮 Virtual Worlds & Metaverse Applications**
+- **🎬 3D-Consistent Content Generation**
+- **🔬 3D Spatial Understanding** 
+- **🤖 3D Embodied Agents**
+- **🎮 Virtual Worlds & Metaverse Applications**
 
 </td>
 </tr>
