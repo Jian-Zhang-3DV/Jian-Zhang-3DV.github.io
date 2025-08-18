@@ -13,16 +13,22 @@
 
 ---
 
-<div align="center">
+<table>
+<tr>
+<td width="30%" align="center">
 
 <img src="jian_zhang.jpg" alt="Jian Zhang" width="180" style="border-radius: 15px;">
 
-**🎓 Graduate Student** at *Xiamen University*  
-**🔬 Research Intern** at *Baidu Inc.*
+<br>
 
-</div>
+**🎓 Graduate Student**  
+*Xiamen University*
 
----
+**🔬 Research Intern**  
+*Baidu Inc.*
+
+</td>
+<td width="70%">
 
 ## 🚀 Research Vision
 
@@ -30,15 +36,15 @@
 
 ### 🎯 Current Focus Areas
 
-<div align="center">
-
 **🎬 3D-Consistent Content Generation** → **🔬 3D Spatial Understanding** → **🤖 3D Embodied Agents**
 
 *↓*
 
 **🎮 Virtual Worlds & Metaverse Applications**
 
-</div>
+</td>
+</tr>
+</table>
 
 ---
 
