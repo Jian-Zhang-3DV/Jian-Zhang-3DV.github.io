@@ -47,39 +47,14 @@
 
 ---
 
-## 🏫 Education & Experience
+## 🎓 Education
 
-<div align="center">
+- **Graduate Student** | *Xiamen University* (Sept 2023 - Present)
+- **B.S. Artificial Intelligence** | *Nanchang University* (Sept 2019 - June 2023)
 
-<table>
-<tr>
-<td width="50%" align="center">
+## 💼 Experience
 
-### 🎓 Education
-
-**Graduate Student**  
-*Xiamen University*  
-📅 Sept 2023 - Present
-
-**B.S. Artificial Intelligence**  
-*Nanchang University*  
-📅 Sept 2019 - June 2023
-
-</td>
-<td width="50%" align="center">
-
-### 💼 Experience
-
-**Research Intern**  
-*Baidu Inc.*  
-📅 Aug 2025 - Present  
-🎯 Video Generation Research
-
-</td>
-</tr>
-</table>
-
-</div>
+- **Research Intern** | *Baidu Inc.* (Aug 2025 - Present) - Video Generation Research
 
 ---
 
