@@ -4,10 +4,9 @@
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Space+Grotesk&size=30&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=Exploring+3D-Consistent+Generation;Advancing+3D+Spatial+Understanding;Building+Intelligent+3D+Agents" alt="Typing SVG" />
 
-[![Homepage](https://img.shields.io/badge/🌐_Homepage-Visit_Site-00D9FF?style=for-the-badge&logo=github-pages)](https://jian-zhang-3dv.github.io/Jian-Zhang-3DV/)
+[![Homepage](https://img.shields.io/badge/🌐_Homepage-Visit_Site-00D9FF?style=for-the-badge&logo=github-pages)](https://jian-zhang-3dv.github.io/)
 [![Google Scholar](https://img.shields.io/badge/📚_Scholar-4285F4?style=for-the-badge&logo=google-scholar&logoColor=white)](https://scholar.google.com/citations?user=qBNtBsAAAAAJ)
 [![CV](https://img.shields.io/badge/📄_CV-Download-FF6B6B?style=for-the-badge&logo=adobe-acrobat-reader)](cv/Resume_Jian_Zhang.pdf)
-[![Xiaohongshu](https://img.shields.io/badge/📔_Xiaohongshu-FF2442?style=for-the-badge&logoColor=white)](https://www.xiaohongshu.com/user/profile/599e002e82ec39105af73220)
 [![Email](https://img.shields.io/badge/📧_Email-Contact-FFA726?style=for-the-badge&logo=gmail&logoColor=white)](mailto:zjrandomyeah@gmail.com)
 
 </div>
