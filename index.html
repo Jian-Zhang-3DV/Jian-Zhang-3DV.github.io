@@ -569,24 +569,30 @@
         
         /* Institution Logos */
         .institution-logo {
-            width: 24px;
-            height: 24px;
+            width: 60px;
+            height: 60px;
             display: inline-block;
             vertical-align: middle;
-            margin-right: 8px;
+            margin-right: 12px;
             object-fit: contain;
-            filter: brightness(0.9);
-            transition: filter 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
         
         .institution-logo:hover {
-            filter: brightness(1.2);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(100, 126, 234, 0.4);
+            background: rgba(255, 255, 255, 1);
         }
         
         .institution-name-container {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
+            margin-top: 4px;
         }
         
         /* Scroll Indicator */
@@ -651,7 +657,7 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <div class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">
-                    JZ.3DV
+                    Jian Zhang
                 </div>
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex space-x-6">
@@ -688,7 +694,7 @@
             
             <div class="typewriter-container mx-auto mb-8" data-aos="fade-up" data-aos-delay="400">
                 <p class="typewriter text-lg md:text-xl text-gray-400" id="typewriter-text">
-                    Exploring the frontiers of 3D-consistent video generation and 3D spatial understanding
+                    Focused on advancing 3D-consistent video generation and spatial understanding
                 </p>
             </div>
             
@@ -696,7 +702,7 @@
                 <a href="mailto:zjrandomyeah@gmail.com" class="contact-icon">
                     <i class="fas fa-envelope text-xl"></i>
                 </a>
-                <a href="https://jian-zhang-3dv.github.io/" target="_blank" class="contact-icon">
+                <a href="https://github.com/Jian-Zhang-3DV" target="_blank" class="contact-icon">
                     <i class="fab fa-github text-xl"></i>
                 </a>
                 <a href="https://scholar.google.com/citations?user=qBNtBsAAAAAJ" target="_blank" class="contact-icon">
@@ -720,94 +726,92 @@
                 About Me
             </h2>
             
+            <!-- First Row: Research Vision and Research Focus -->
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="about-card" data-aos="fade-right">
+                    <h3 class="text-xl font-bold mb-4 text-cyan-400">Research Vision</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        My long-term vision follows a progressive pathway: first achieving 3D-consistent content generation, 
+                        then developing comprehensive 3D understanding, and ultimately enabling intelligent embodied agents 
+                        that can navigate and interact within these 3D environments.
+                    </p>
+                </div>
+                
+                <div class="about-card" data-aos="fade-left">
+                    <h3 class="text-xl font-bold mb-4 text-purple-400">Research Focus</h3>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2 p-2 rounded hover:bg-gray-800/50 transition">
+                            <span class="text-cyan-400">▸</span>
+                            <span class="text-sm text-gray-300">3D-Consistent Content Generation</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-2 rounded hover:bg-gray-800/50 transition">
+                            <span class="text-cyan-400">▸</span>
+                            <span class="text-sm text-gray-300">3D Understanding</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-2 rounded hover:bg-gray-800/50 transition">
+                            <span class="text-cyan-400">▸</span>
+                            <span class="text-sm text-gray-300">3D Embodied Agents</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Row: Education and Experience -->
             <div class="grid md:grid-cols-2 gap-6">
-                
-                <div class="flex flex-col gap-4">
-                    <div class="about-card" data-aos="fade-right">
-                        <h3 class="text-xl font-bold mb-4 text-cyan-400">Education</h3>
-                        <div class="space-y-3">
-                            <div class="border-l-4 border-cyan-400 pl-3 py-2">
-                                <h4 class="font-semibold text-white">Graduate Student</h4>
-                                <div class="institution-name-container">
-                                    <img src="assets/logos/XMU.png" alt="XMU" class="institution-logo">
-                                    <p class="text-sm text-gray-300">Xiamen University</p>
-                                </div>
-                                <p class="text-xs text-gray-500">Sept 2023 - Present</p>
+                <div class="about-card" data-aos="fade-right" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-4 text-cyan-400">Education</h3>
+                    <div class="space-y-3">
+                        <div class="border-l-4 border-cyan-400 pl-3 py-2">
+                            <h4 class="font-semibold text-white">Graduate Student</h4>
+                            <div class="institution-name-container">
+                                <img src="assets/logos/XMU.png" alt="XMU" class="institution-logo">
+                                <p class="text-sm text-gray-300">Xiamen University</p>
                             </div>
-                            <div class="border-l-4 border-purple-400 pl-3 py-2">
-                                <h4 class="font-semibold text-white">B.S. in Artificial Intelligence</h4>
-                                <div class="institution-name-container">
-                                    <img src="assets/logos/NCU.png" alt="NCU" class="institution-logo">
-                                    <p class="text-sm text-gray-300">Nanchang University</p>
-                                </div>
-                                <p class="text-xs text-gray-500">Sept 2019 - June 2023</p>
-                            </div>
+                            <p class="text-xs text-gray-500">Sept 2023 - Present</p>
                         </div>
-                    </div>
-                    
-                    <div class="about-card" data-aos="fade-right" data-aos-delay="100">
-                        <h3 class="text-xl font-bold mb-4 text-purple-400">Experience</h3>
-                        <div class="space-y-3">
-                            <div class="border-l-4 border-purple-400 pl-3 py-2">
-                                <h4 class="font-semibold text-white">Research Intern</h4>
-                                <div class="institution-name-container">
-                                    <img src="assets/logos/Baidu.png" alt="Baidu" class="institution-logo">
-                                    <p class="text-sm text-gray-300">Baidu Inc.</p>
-                                </div>
-                                <p class="text-xs text-gray-500">Aug 2025 - Present</p>
-                                <p class="text-xs mt-1 text-cyan-300">Video Generation Research</p>
+                        <div class="border-l-4 border-purple-400 pl-3 py-2">
+                            <h4 class="font-semibold text-white">B.S. in Artificial Intelligence</h4>
+                            <div class="institution-name-container">
+                                <img src="assets/logos/NCU.png" alt="NCU" class="institution-logo">
+                                <p class="text-sm text-gray-300">Nanchang University</p>
                             </div>
-                            <div class="border-l-4 border-purple-400 pl-3 py-2">
-                                <h4 class="font-semibold text-white">Research Assistant</h4>
-                                <div class="institution-name-container">
-                                    <img src="assets/logos/TAMU.png" alt="TAMU" class="institution-logo">
-                                    <p class="text-sm text-gray-300">Texas A&M University</p>
-                                </div>
-                                <p class="text-xs text-gray-500">May 2025 - Aug 2025</p>
-                                <p class="text-xs mt-1 text-cyan-300">3D Vision & Embodied Intelligence</p>
-                            </div>
-                            <div class="border-l-4 border-purple-400 pl-3 py-2">
-                                <h4 class="font-semibold text-white">Research Assistant</h4>
-                                <div class="institution-name-container">
-                                    <img src="assets/logos/UT_Austin.png" alt="UT Austin" class="institution-logo">
-                                    <p class="text-sm text-gray-300">VITA Group, University of Texas at Austin</p>
-                                </div>
-                                <p class="text-xs text-gray-500">Jan 2024 - May 2025</p>
-                                <p class="text-xs mt-1 text-cyan-300">3D Spatial Reconstruction & Understanding</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="flex flex-col gap-4">
-                    <div class="about-card" data-aos="fade-left">
-                        <h3 class="text-xl font-bold mb-4 text-cyan-400">Research Vision</h3>
-                        <p class="text-sm text-gray-300 leading-relaxed">
-                            My long-term vision follows a progressive pathway: first achieving 3D-consistent content generation, 
-                            then developing comprehensive 3D understanding, and ultimately enabling intelligent embodied agents 
-                            that can navigate and interact within these 3D environments.
-                        </p>
-                    </div>
-                    
-                    <div class="about-card" data-aos="fade-left" data-aos-delay="100">
-                        <h3 class="text-xl font-bold mb-4 text-purple-400">Research Focus</h3>
-                        <div class="space-y-2">
-                            <div class="flex items-center gap-2 p-2 rounded hover:bg-gray-800/50 transition">
-                                <span class="text-cyan-400">▸</span>
-                                <span class="text-sm text-gray-300">3D-Consistent Content Generation</span>
-                            </div>
-                            <div class="flex items-center gap-2 p-2 rounded hover:bg-gray-800/50 transition">
-                                <span class="text-cyan-400">▸</span>
-                                <span class="text-sm text-gray-300">3D Understanding</span>
-                            </div>
-                            <div class="flex items-center gap-2 p-2 rounded hover:bg-gray-800/50 transition">
-                                <span class="text-cyan-400">▸</span>
-                                <span class="text-sm text-gray-300">3D Embodied Agents</span>
-                            </div>
+                            <p class="text-xs text-gray-500">Sept 2019 - June 2023</p>
                         </div>
                     </div>
                 </div>
                 
+                <div class="about-card" data-aos="fade-left" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-4 text-purple-400">Experience</h3>
+                    <div class="space-y-3">
+                        <div class="border-l-4 border-purple-400 pl-3 py-2">
+                            <h4 class="font-semibold text-white">Research Intern</h4>
+                            <div class="institution-name-container">
+                                <img src="assets/logos/Baidu.png" alt="Baidu" class="institution-logo">
+                                <p class="text-sm text-gray-300">Baidu Inc.</p>
+                            </div>
+                            <p class="text-xs text-gray-500">Aug 2025 - Present</p>
+                            <p class="text-xs mt-1 text-cyan-300">Video Generation Research</p>
+                        </div>
+                        <div class="border-l-4 border-purple-400 pl-3 py-2">
+                            <h4 class="font-semibold text-white">Research Assistant</h4>
+                            <div class="institution-name-container">
+                                <img src="assets/logos/TAMU.png" alt="TAMU" class="institution-logo">
+                                <p class="text-sm text-gray-300">Texas A&M University</p>
+                            </div>
+                            <p class="text-xs text-gray-500">May 2025 - Aug 2025</p>
+                            <p class="text-xs mt-1 text-cyan-300">3D Vision & Embodied Intelligence</p>
+                        </div>
+                        <div class="border-l-4 border-purple-400 pl-3 py-2">
+                            <h4 class="font-semibold text-white">Research Assistant</h4>
+                            <div class="institution-name-container">
+                                <img src="assets/logos/UT_Austin.png" alt="UT Austin" class="institution-logo">
+                                <p class="text-sm text-gray-300">VITA Group, University of Texas at Austin</p>
+                            </div>
+                            <p class="text-xs text-gray-500">Jan 2024 - May 2025</p>
+                            <p class="text-xs mt-1 text-cyan-300">3D Spatial Reconstruction & Understanding</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -817,7 +821,7 @@
         <div class="container mx-auto max-w-6xl">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent"
                 data-aos="fade-up">
-                Research Publications
+                Publications & Preprints
             </h2>
             
             <!-- VLM-3R -->
