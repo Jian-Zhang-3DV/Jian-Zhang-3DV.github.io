@@ -567,6 +567,28 @@
         
         
         
+        /* Institution Logos */
+        .institution-logo {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+            object-fit: contain;
+            filter: brightness(0.9);
+            transition: filter 0.3s ease;
+        }
+        
+        .institution-logo:hover {
+            filter: brightness(1.2);
+        }
+        
+        .institution-name-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
         /* Scroll Indicator */
         .scroll-indicator {
             position: absolute;
@@ -706,12 +728,18 @@
                         <div class="space-y-3">
                             <div class="border-l-4 border-cyan-400 pl-3 py-2">
                                 <h4 class="font-semibold text-white">Graduate Student</h4>
-                                <p class="text-sm text-gray-300">Xiamen University</p>
+                                <div class="institution-name-container">
+                                    <img src="assets/logos/XMU.png" alt="XMU" class="institution-logo">
+                                    <p class="text-sm text-gray-300">Xiamen University</p>
+                                </div>
                                 <p class="text-xs text-gray-500">Sept 2023 - Present</p>
                             </div>
                             <div class="border-l-4 border-purple-400 pl-3 py-2">
                                 <h4 class="font-semibold text-white">B.S. in Artificial Intelligence</h4>
-                                <p class="text-sm text-gray-300">Nanchang University</p>
+                                <div class="institution-name-container">
+                                    <img src="assets/logos/NCU.png" alt="NCU" class="institution-logo">
+                                    <p class="text-sm text-gray-300">Nanchang University</p>
+                                </div>
                                 <p class="text-xs text-gray-500">Sept 2019 - June 2023</p>
                             </div>
                         </div>
@@ -722,19 +750,28 @@
                         <div class="space-y-3">
                             <div class="border-l-4 border-purple-400 pl-3 py-2">
                                 <h4 class="font-semibold text-white">Research Intern</h4>
-                                <p class="text-sm text-gray-300">Baidu Inc.</p>
+                                <div class="institution-name-container">
+                                    <img src="assets/logos/Baidu.png" alt="Baidu" class="institution-logo">
+                                    <p class="text-sm text-gray-300">Baidu Inc.</p>
+                                </div>
                                 <p class="text-xs text-gray-500">Aug 2025 - Present</p>
                                 <p class="text-xs mt-1 text-cyan-300">Video Generation Research</p>
                             </div>
                             <div class="border-l-4 border-purple-400 pl-3 py-2">
                                 <h4 class="font-semibold text-white">Research Assistant</h4>
-                                <p class="text-sm text-gray-300">Texas A&M University</p>
+                                <div class="institution-name-container">
+                                    <img src="assets/logos/TAMU.png" alt="TAMU" class="institution-logo">
+                                    <p class="text-sm text-gray-300">Texas A&M University</p>
+                                </div>
                                 <p class="text-xs text-gray-500">May 2025 - Aug 2025</p>
                                 <p class="text-xs mt-1 text-cyan-300">3D Vision & Embodied Intelligence</p>
                             </div>
                             <div class="border-l-4 border-purple-400 pl-3 py-2">
                                 <h4 class="font-semibold text-white">Research Assistant</h4>
-                                <p class="text-sm text-gray-300">VITA Group, University of Texas at Austin</p>
+                                <div class="institution-name-container">
+                                    <img src="assets/logos/UT_Austin.png" alt="UT Austin" class="institution-logo">
+                                    <p class="text-sm text-gray-300">VITA Group, University of Texas at Austin</p>
+                                </div>
                                 <p class="text-xs text-gray-500">Jan 2024 - May 2025</p>
                                 <p class="text-xs mt-1 text-cyan-300">3D Spatial Reconstruction & Understanding</p>
                             </div>
