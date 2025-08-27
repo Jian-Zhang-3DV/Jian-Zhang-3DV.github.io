@@ -857,7 +857,7 @@
                     </div>
                     <div class="lg:w-1/3">
                         <video class="w-full rounded-lg shadow-xl hover:scale-105 transition cursor-pointer" 
-                               autoplay muted loop playsinline
+                               autoplay muted loop playsinline preload="metadata" preload="metadata"
                                onclick="openVideoModal('projects/vlm3r/arc-dynamic.mp4')">
                             <source src="projects/vlm3r/arc-dynamic.mp4" type="video/mp4">
                         </video>
@@ -899,7 +899,7 @@
                     </div>
                     <div class="lg:w-1/3">
                         <video class="w-full rounded-lg shadow-xl hover:scale-105 transition cursor-pointer"
-                               autoplay muted loop playsinline
+                               autoplay muted loop playsinline preload="metadata"
                                onclick="openVideoModal('projects/dynamicverse/DynamicVerse-preview.mp4')">
                             <source src="projects/dynamicverse/DynamicVerse-preview.mp4" type="video/mp4">
                         </video>
@@ -944,7 +944,7 @@
                     </div>
                     <div class="lg:w-1/3">
                         <video class="w-full rounded-lg shadow-xl hover:scale-105 transition cursor-pointer"
-                               autoplay muted loop playsinline
+                               autoplay muted loop playsinline preload="metadata"
                                onclick="openVideoModal('projects/lsm/LSM_demo.mp4')">
                             <source src="projects/lsm/LSM_demo.mp4" type="video/mp4">
                         </video>
@@ -989,7 +989,7 @@
                     </div>
                     <div class="lg:w-1/3">
                         <video class="w-full rounded-lg shadow-xl hover:scale-105 transition cursor-pointer"
-                               autoplay muted loop playsinline
+                               autoplay muted loop playsinline preload="metadata"
                                onclick="openVideoModal('projects/instantsplat/demo1.mp4')">
                             <source src="projects/instantsplat/demo1.mp4" type="video/mp4">
                         </video>
@@ -1061,12 +1061,12 @@
             offset: 100
         });
         
-        // Loading Screen
-        window.addEventListener('load', () => {
+        // Loading Screen - Hide once DOM is ready, don't wait for all videos
+        document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 document.getElementById('loader').style.opacity = '0';
                 document.getElementById('loader').style.visibility = 'hidden';
-            }, 1500);
+            }, 500); // Reduced from 1500ms to 500ms
         });
         
         // Cursor Glow Effect
